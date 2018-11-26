@@ -29,6 +29,7 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -95,42 +96,188 @@
 						Muela de las Gemas!!
 					</p>
 				</section>
-
 				<section>
-					<h2></h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
+					<section>
+						<h2>Ruby on Rails</h2>
+						<a href="#" class="navigate-down">
+							<img width="478" height="538" data-src="rails.png" alt="Yay! You are in Rails!">
+						</a>
+					</section>
+					<section>
+						<h2>Convention over configuration</h2>
+					</section>
+					<section>
+						<h2>Compare with others frameworks</h2>
+					</section>
+				</section>
+				<section>
+					<!-- Aqui falta ilustrar como es la jerarquia de clases en Ruby -->
+					<h2>Jerarquia y Clases Basicas en Ruby</h2>
 				</section>
 
 				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
+					<section>
+						<pre><code class="hljs" data-trim style="tom">
+							class Documents
+								include Enumerable
+
+								attr_reader :text
+
+								def initialize(text, &block)
+									@text = text
+								end
+
+								# ...
+
+							end
+						</code></pre>
+						<p>
+							<ul>
+								<li>Que significa include</li>
+								<li>Que es un mixin</li>
+								<li>Que son los bloques</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim >
+							# ...
+							def each
+
+							end
+
+							def sort (&block)
+
+							end
+
+							def frequency
+
+							end
+
+							# ...
+						</code></pre>
+						<p>
+							<ul>
+								<li>Metodos virtuales</li>
+								<li>Expresiones regulares</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim >
+							# ...
+							def delete!(words)
+
+						  end
+
+						  def to_s
+
+						  end
+
+						  def downcase!
+
+						  end
+
+							# ...
+						</code></pre>
+						<p>
+							<ul>
+								<li>Significado de los Simbolos !, ? y = al final de un metodo</li>
+								<li>Sobre Escritura de metodos</li>
+							</ul>
+						</p>
+					</section>
+					<section>
+						<pre><code class="hljs" data-trim >
+							# ...
+							def delStopWords! (stopWords = %w[the doesn't does that indeed etc a in on])
+
+							end
+
+							def method_missing (name, *args, &block)
+
+							end
+
+							def respond_to?(name)
+
+							end
+							# ...
+						</code></pre>
+						<p>
+							<ul>
+								<li>Significado de %w</li>
+								<li>Como se definen argumentos Adicionales</li>
+								<li>Que son los mensajes en Ruby</li>
+							</ul>
+						</p>
+					</section>
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+				<section>
+					<section>
+						<h2>
+							<span style="display: inline-block;" class="fragment fade-right ">Ruby </span>
+							<span style="display: inline-block;" class="fragment fade-up">vs ... </span>
+							<span style="display: inline-block;" class="fragment fade-down ">Python ... </span>
+							<span style="display: inline-block;" class="fragment fade-left"> again.</span>
+						</h2>
+					</section>
+					<section>
+						<h2>Cuan Dinamicos Son?</h2>
+						<ul>
+							<li>Mostrar Dinamismo entre ellos</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Control de acceso a datos</h2>
+						<ul>
+							<li>Mostrar acceso a datos entre ellos</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Eficiencia</h2>
+						<ul>
+							<li>Mostrar eficiencia entre ellos</li>
+						</ul>
+					</section>
+					<section>
+						<section>
+							<h2>
+								<span style="display: inline-block;" class="fragment fade-right ">Magia!</span>
+							</h2>
+							<span style="display: inline-block;" class="fragment fade-right ">
+								<ul>
+									<li>Y aqui llego la magia!</li>
+								</ul>
+							</span>
 						</section>
-						```
-					</script>
-				</section>
 
+					</section>
+					<section>
+						<section>
+							<h2>
+								<span style="display: inline-block;" class="fragment fade-right ">Mas Magia => Metaprogramacion</span>
+							</h2>
+							<span style="display: inline-block;" class="fragment fade-right ">
+								<ul>
+									<li>Esto si es magia!</li>
+								</ul>
+							</span>
+						</section>
+					</section>
+					<section>
+						<h2>Facilidades de uso</h2>
+						<ul>
+							<li>Comparacion entre las facilidades de uso de ambos lenguajes</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Extensiones de uso</h2>
+						<ul>
+							<li>Mostrar la extension de ambos lenguajes</li>
+						</ul>
+					</section>
+				</section>
+<!--
 				<section>
 					<section id="fragments">
 						<h2>Fragments</h2>
@@ -177,7 +324,7 @@
 					<h2>Themes</h2>
 					<p>
 						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck.
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
@@ -387,7 +534,7 @@ Reveal.addEventListener( 'customevent', function() {
 						- <a href="https://slides.com">Try the online editor</a> <br>
 						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
 					</p>
-				</section>
+				</section> -->
 
 			</div>
 
