@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html data-scrapbook-source="https://hypothes.is/app.html?config=%7B%22annotations%22:null,%22assetRoot%22:null,%22branding%22:null,%22clientUrl%22:%22https:%2F%2Fcdn.hypothes.is%2Fhypothesis%2F1.105.0%2Fbuild%2Fboot.js%22,%22enableExperimentalNewNoteButton%22:null,%22theme%22:null,%22usernameUrl%22:null,%22onLayoutChange%22:null,%22openSidebar%22:null,%22query%22:null,%22requestConfigFromFrame%22:null,%22services%22:null,%22showHighlights%22:%22always%22,%22subFrameIdentifier%22:null,%22externalContainerSelector%22:null%7D" data-scrapbook-create="20181116135521654">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hypothesis</title>
+    
+    <base target="_top">
+    
+  <script async=""></script><script type="text/javascript"></script><script type="text/javascript"></script><script type="text/javascript"></script><script type="text/javascript"></script><script type="text/javascript"></script><script type="text/javascript"></script><script type="text/javascript"></script><link rel="stylesheet" type="text/css" href="angular-csp.css"><link rel="stylesheet" type="text/css" href="angular-toastr.css"><link rel="stylesheet" type="text/css" href="icomoon.css"><link rel="stylesheet" type="text/css" href="katex.min.css"><link rel="stylesheet" type="text/css" href="sidebar.css">
+</head>
+  <body ng-csp="">
+    <hypothesis-app class="ng-scope ng-isolate-scope"><div class="app-content-wrapper js-thread-list-scroll-root" h-branding="appBackgroundColor">
+  <top-bar auth="vm.auth" on-sign-up="vm.signUp()" on-share-page="vm.share()" is-sidebar="::vm.isSidebar" pending-update-count="vm.countPendingUpdates()" search-controller="vm.search" sort-key="vm.sortKey()" sort-keys-available="vm.sortKeysAvailable()" class="ng-isolate-scope"><!-- top bar for the sidebar and the stream.
+!-->
+<div class="top-bar" ng-class="{'top-bar--theme-clean' : vm.isThemeClean }">
+  <!-- Legacy design for top bar, as used in the stream !-->
+  <!-- ngIf: ::!vm.isSidebar -->
+  <!-- New design for the top bar, as used in the sidebar.
+
+       The inner div is styled with 'content' to center it in
+       the stream view.
+  !-->
+  <!-- ngIf: ::vm.isSidebar --><div class="top-bar__inner content ng-scope" ng-if="::vm.isSidebar">
+    <group-list class="group-list ng-isolate-scope" auth="vm.auth"><div class="pull-right dropdown" dropdown="" keyboard-nav="">
+  <div class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown" role="button" title="Change the selected group" aria-haspopup="true" aria-expanded="false">
+    <!-- ngIf: vm.focusedIcon() --><img class="group-list-label__icon group-list-label__icon--organization ng-scope" ng-src="https://hypothes.is/organizations/__default__/logo" alt="Hypothesis" ng-if="vm.focusedIcon()" src="logo.svg"><!-- end ngIf: vm.focusedIcon() -->
+         <!-- ngIf: !vm.focusedIcon() --><!-- nospace
+    !--><span class="group-list-label__label ng-binding">Public</span><!-- nospace
+      !--><i class="h-icon-arrow-drop-down"></i>
+  </div>
+  <div class="dropdown-menu__top-arrow"></div>
+  <ul class="dropdown-menu pull-none" role="menu">
+    <!-- ngRepeat: group in vm.groupOrganizations() track by group.id --><li class="dropdown-menu__row dropdown-menu__row--unpadded  ng-scope" ng-repeat="group in vm.groupOrganizations() track by group.id">
+      <div ng-class="{'group-item': true, selected: group.id == vm.groups.focused().id}" ng-click="vm.focusGroup(group.id)" class="group-item selected">
+        <!-- the group icon !-->
+        <div class="group-menu-icon-container">
+          <!-- ngIf: group.logo --><img class="group-list-label__icon group-list-label__icon--organization ng-scope" alt="Hypothesis" ng-src="https://hypothes.is/organizations/__default__/logo" ng-if="group.logo" src="logo.svg"><!-- end ngIf: group.logo -->
+        </div>
+        <!-- the group name and share link !-->
+        <div class="group-details">
+          <div class="group-name-container">
+            <a class="group-name-link ng-binding" href="https://hypothes.is/" title="Show public annotations">
+               Public
+            </a>
+          </div>
+          <!-- ngIf: vm.shouldShowActivityLink(group.id) --><div class="share-link-container ng-scope" ng-click="$event.stopPropagation()" ng-if="vm.shouldShowActivityLink(group.id)">
+            <a class="share-link" href="https://hypothes.is/groups/__world__/public" target="_blank" ng-click="vm.viewGroupActivity()">
+              View group activity
+              <!-- ngIf: group.type === 'private' -->
+            </a>
+          </div><!-- end ngIf: vm.shouldShowActivityLink(group.id) -->
+        </div>
+        <!-- the 'Leave group' icon !-->
+        <div class="group-cancel-icon-container" ng-click="$event.stopPropagation()">
+          <!-- ngIf: group.type === 'private' -->
+        </div>
+      </div>
+    </li><!-- end ngRepeat: group in vm.groupOrganizations() track by group.id -->
+    <!-- ngIf: vm.auth.status === 'logged-in' && !vm.isThirdPartyUser() -->
+  </ul>
+</div>
+</group-list>
+    <div class="top-bar__expander"></div>
+    <!-- ngIf: vm.pendingUpdateCount > 0 -->
+    <search-input class="search-input ng-isolate-scope" query="vm.searchController.query()" title="Filter the annotation list"><form class="simple-search-form ng-pristine ng-valid simple-search-inactive" name="searchForm" ng-class="!vm.query &amp;&amp; 'simple-search-inactive'">
+  <input class="simple-search-input" name="query" placeholder="Search…" ng-disabled="vm.loading" ng-class="vm.inputClasses()" value="" type="text">
+  <button type="button" class="simple-search-icon top-bar__btn" ng-hide="vm.loading">
+    <i class="h-icon-search"></i>
+  </button>
+  <spinner class="top-bar__btn ng-isolate-scope ng-hide" ng-show="vm.loading" title="Loading…">
+    <div class="spinner__container">
+      <span class="spinner">
+        <span><span>
+        </span></span>
+      </span>
+    </div>
+  </spinner>
+</form>
+</search-input>
+    <sort-dropdown sort-keys-available="vm.sortKeysAvailable" sort-key="vm.sortKey" class="ng-isolate-scope"><span dropdown="" keyboard-nav="" class="dropdown">
+  <button type="button" class="top-bar__btn dropdown-toggle" dropdown-toggle="" title="Sort by Location" aria-haspopup="true" aria-expanded="false">
+    <i class="h-icon-sort"></i>
+  </button>
+  <div class="dropdown-menu__top-arrow"></div>
+  <ul class="dropdown-menu pull-right" role="menu">
+    <!-- ngRepeat: key in vm.sortKeysAvailable --><li class="dropdown-menu__row ng-scope" ng-repeat="key in vm.sortKeysAvailable" ng-click="vm.onChangeSortKey({sortKey: key})"><span class="dropdown-menu-radio" ng-class="{'is-selected' : vm.sortKey === key}"></span><a class="dropdown-menu__link ng-binding" href="https://hypothes.is/">Newest</a></li><!-- end ngRepeat: key in vm.sortKeysAvailable --><li class="dropdown-menu__row ng-scope" ng-repeat="key in vm.sortKeysAvailable" ng-click="vm.onChangeSortKey({sortKey: key})"><span class="dropdown-menu-radio" ng-class="{'is-selected' : vm.sortKey === key}"></span><a class="dropdown-menu__link ng-binding" href="https://hypothes.is/">Oldest</a></li><!-- end ngRepeat: key in vm.sortKeysAvailable --><li class="dropdown-menu__row ng-scope" ng-repeat="key in vm.sortKeysAvailable" ng-click="vm.onChangeSortKey({sortKey: key})"><span class="dropdown-menu-radio is-selected" ng-class="{'is-selected' : vm.sortKey === key}"></span><a class="dropdown-menu__link ng-binding" href="https://hypothes.is/">Location</a></li><!-- end ngRepeat: key in vm.sortKeysAvailable -->
+  </ul>
+</span>
+</sort-dropdown>
+    <!-- ngIf: vm.showSharePageButton() --><button class="top-bar__btn ng-scope" ng-click="vm.onSharePage()" ng-if="vm.showSharePageButton()" title="Share this page" aria-label="Share this page">
+      <i class="h-icon-annotation-share"></i>
+    </button><!-- end ngIf: vm.showSharePageButton() -->
+    <login-control class="login-control ng-isolate-scope" auth="vm.auth" new-style="true" on-login="vm.onLogin()" on-sign-up="vm.onSignUp()"><!-- New controls -->
+<!-- ngIf: vm.newStyle && vm.auth.status === 'unknown' -->
+<!-- ngIf: vm.newStyle && vm.auth.status === 'logged-out' --><span class="login-text ng-scope" ng-if="vm.newStyle &amp;&amp; vm.auth.status === 'logged-out'">
+  <a href="https://hypothes.is/" ng-click="vm.onSignUp()" target="_blank" h-branding="accentColor">Sign up</a>
+  / <a href="https://hypothes.is/" ng-click="vm.onLogin()" h-branding="accentColor">Log in</a>
+</span><!-- end ngIf: vm.newStyle && vm.auth.status === 'logged-out' -->
+<!-- ngIf: vm.newStyle --><div ng-if="vm.newStyle" class="pull-right login-control-menu ng-scope dropdown" dropdown="" keyboard-nav="">
+  <a role="button" class="top-bar__btn dropdown-toggle" data-toggle="dropdown" dropdown-toggle="" title="" aria-haspopup="true" aria-expanded="false">
+    <!-- ngIf: vm.auth.status === 'logged-in' --><!--
+    !--><i class="h-icon-arrow-drop-down top-bar__dropdown-arrow"></i>
+  </a>
+  <ul class="dropdown-menu pull-right" role="menu">
+    <!-- ngIf: vm.auth.status === 'logged-in' -->
+    <!-- ngIf: vm.auth.status === 'logged-in' && !vm.isThirdPartyUser() -->
+    <li class="dropdown-menu__row">
+      <a class="dropdown-menu__link js-help-btn" ng-click="vm.onShowHelpPanel()">Help</a>
+    </li>
+    <!-- ngIf: vm.shouldShowLogOutButton() -->
+  </ul>
+</div><!-- end ngIf: vm.newStyle -->
+
+<!-- Old controls -->
+<!-- ngIf: !vm.newStyle && vm.auth.status === 'unknown' -->
+<!-- ngIf: !vm.newStyle && vm.auth.status === 'logged-out' -->
+<!-- ngIf: !vm.newStyle -->
+</login-control>
+  </div><!-- end ngIf: ::vm.isSidebar -->
+</div>
+</top-bar>
+
+  <div class="content">
+    <!-- ngIf: vm.isSidebar --><sidebar-tutorial ng-if="vm.isSidebar" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.showSidebarTutorial() &&  !vm.isThemeClean -->
+<!-- ngIf: vm.showSidebarTutorial() && vm.isThemeClean -->
+</sidebar-tutorial><!-- end ngIf: vm.isSidebar -->
+    <!-- ngIf: vm.shareDialog.visible -->
+    <!-- ngIf: vm.helpPanel.visible -->
+    <!-- ngView: --><main ng-view="" class="ng-scope"><sidebar-content search="vm.search" auth="vm.auth" class="ng-scope ng-isolate-scope"><!-- ngIf: !vm.search.query() && vm.selectedAnnotationCount() === 0 --><selection-tabs ng-if="!vm.search.query() &amp;&amp; vm.selectedAnnotationCount() === 0" is-waiting-to-anchor-annotations="vm.waitingToAnchorAnnotations" is-loading="vm.isLoading" selected-tab="vm.selectedTab" total-annotations="vm.totalAnnotations" total-notes="vm.totalNotes" total-orphans="vm.totalOrphans" class="ng-scope ng-isolate-scope"><!-- Tabbed display of annotations and notes. -->
+<div class="selection-tabs" ng-class="{'selection-tabs--theme-clean' : vm.isThemeClean }">
+  <a class="selection-tabs__type is-selected" href="https://hypothes.is/#" ng-class="{'is-selected': vm.selectedTab === vm.TAB_ANNOTATIONS}" h-on-touch="vm.selectTab(vm.TAB_ANNOTATIONS)">
+    Annotations
+    <!-- ngIf: vm.totalAnnotations > 0 && !vm.isWaitingToAnchorAnnotations -->
+  </a>
+  <a class="selection-tabs__type" href="https://hypothes.is/#" ng-class="{'is-selected': vm.selectedTab === vm.TAB_NOTES}" h-on-touch="vm.selectTab(vm.TAB_NOTES)">
+    Page Notes
+    <!-- ngIf: vm.totalNotes > 0 && !vm.isWaitingToAnchorAnnotations -->
+  </a>
+  <!-- ngIf: vm.totalOrphans > 0 -->
+</div>
+<!-- ngIf: vm.selectedTab === vm.TAB_NOTES && vm.enableExperimentalNewNoteButton -->
+<!-- ngIf: !vm.isLoading() --><div ng-if="!vm.isLoading()" class="selection-tabs__empty-message ng-scope">
+  <!-- ngIf: vm.showNotesUnavailableMessage() -->
+  <!-- ngIf: vm.showAnnotationsUnavailableMessage() --><div ng-if="vm.showAnnotationsUnavailableMessage()" class="annotation-unavailable-message ng-scope">
+    <p class="annotation-unavailable-message__label">
+      There are no annotations in this group.
+      <br>
+      </p><!-- ngIf: !vm.showSidebarTutorial() --><div ng-if="!vm.showSidebarTutorial()" class="annotation-unavailable-message__tutorial ng-scope">
+        Create one by selecting some text and clicking the
+        <i class="help-icon h-icon-annotate"></i> button.
+      </div><!-- end ngIf: !vm.showSidebarTutorial() -->
+    <p></p>
+  </div><!-- end ngIf: vm.showAnnotationsUnavailableMessage() -->
+</div><!-- end ngIf: !vm.isLoading() -->
+</selection-tabs><!-- end ngIf: !vm.search.query() && vm.selectedAnnotationCount() === 0 -->
+
+<search-status-bar ng-show="!vm.isLoading()" filter-active="!!vm.search.query()" filter-match-count="vm.visibleCount()" search-query="vm.search.query()" selection-count="vm.selectedAnnotationCount()" total-count="vm.topLevelThreadCount()" selected-tab="vm.selectedTab" total-annotations="vm.totalAnnotations" total-notes="vm.totalNotes" class="ng-isolate-scope"><!-- ngIf: vm.filterActive -->
+<!-- ngIf: !vm.filterActive && vm.selectionCount > 0 -->
+</search-status-bar>
+
+<!-- ngIf: vm.selectedAnnotationUnavailable() -->
+<thread-list on-clear-selection="vm.clearSelection()" on-force-visible="vm.forceVisible(thread)" show-document-info="false" thread="vm.rootThread" class="ng-isolate-scope"><ul class="thread-list">
+  <li class="thread-list__spacer" ng-style="{height: vm.virtualThreadList.offscreenUpperHeight}" style="height: 0px;"></li>
+  <!-- ngRepeat: child in vm.virtualThreadList.visibleThreads track by child.id -->
+  <!-- ngRepeat: child in vm.virtualThreadList.invisibleThreads track by child.id -->
+  <li class="thread-list__spacer" ng-style="{height: vm.virtualThreadList.offscreenLowerHeight}" style="height: 0px;"></li>
+</ul>
+</thread-list>
+
+<!-- ngIf: vm.shouldShowLoggedOutMessage() -->
+</sidebar-content></main>
+  </div>
+</div>
+</hypothesis-app>
+
+    
+    <!-- App Configuration !-->
+    <script class="js-hypothesis-config js-hypothesis-settings" type="application/json"></script>
+
+    <!-- Client boot script !-->
+    <script></script>
+
+  
+<div class="tooltip" style="visibility: hidden;"><span class="tooltip-label js-tooltip-label"></span></div></body>
+</html>

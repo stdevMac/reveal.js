@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta chatset="utf-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1.0" , maximum-scale="1.0" , user-scalable="1.0">
+<meta http-equiv="title" content="Programacion en castellano ajax ruby on rails html php mysql asp java perl cgi codigo fuente open source gpl linux windows delphi foros gratis" />
+<meta http-equiv="keywords" content="programacion, lenguajes de programacion, sistemas operativos, bases de datos, programacion, computacion, internet, mysql php, ruby, rar, lamp, ruby on rails" />
+<meta http-equiv="description" content="Programacion en castellano. Recursos y documentacion para desarrolladores en castellano: lenguajes de programaciÛn (java, vbasic, ruby, etc.) , sistemas operativos (linux, Windows, etc.), bases de datos, algoritmos, internet (Ajax, HTML, XML, etc.), ..." />
+<meta http-equiv="DC.Description" content="Programacion en castellano. Recursos y documentacion para desarrolladores en castellano: lenguajes de programaciÛn (java, vbasic, ruby, etc.) , sistemas operativos (linux, Windows, etc.), bases de datos, algoritmos, internet (Ajax, HTML, XML, etc.), ..." />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="title" content="Programacion en castellano ajax ruby on rails html php mysql asp java perl cgi codigo fuente open source gpl linux windows delphi foros gratis" />
+<meta name="DC.Title" content="Programacion en castellano ajax ruby on rails html php mysql asp java perl cgi codigo fuente open source gpl linux windows delphi foros gratis" />
+<meta name="author" content="Programacion en Castellano, S.L." />
+<link rel="canonical" href="https://programacion.net/templates/default/fonts/fontawesome-webfont.woff2?v=4.4.0" />
+<link rel="icon" href="/templates/default/imgs/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/templates/default/imgs/favicon.ico" type="image/x-icon" />
+<meta property="og:title" content="Programacion en castellano ajax ruby on rails html php mysql asp java perl cgi codigo fuente open source gpl linux windows delphi foros gratis" />
+<meta property="og:image" content="https://programacion.net/files/imagotipo-programacionnet.png" />
+<meta property="og:site_name" content="Programaci&oacute;n en Castellano." />
+<meta property="og:description" content="Programacion en castellano. Recursos y documentacion para desarrolladores en castellano: lenguajes de programaciÛn (java, vbasic, ruby, etc.) , sistemas operativos (linux, Windows, etc.), bases de datos, algoritmos, internet (Ajax, HTML, XML, etc.), ..." />
+<meta property="og:url" content="http://programacion.net/templates/default/fonts/fontawesome-webfont.woff2?v=4.4.0" />
+<meta name="DC.Creator" content="Programacion en Castellano, S.L." />
+<meta name="VW96.objecttype" content="Document" />
+<meta name="DC.Language" content="Spanish" />
+<meta name="distribution" content="global" />
+<meta name="resource-type" content="document" />
+<meta name="Revisit" content="1 days" />
+<meta name="encoding" content="ISO-8859-1" />
+<meta name="verify-v1" content="h4J2cgDnMSuO/sumshZPfJUHkjw7eum37PsqAjQgNyw=" />
+<title>Programacion en castellano ajax ruby on rails html php mysql asp java perl cgi codigo fuente open source gpl linux windows delphi foros gratis. Programaci&oacute;n en Castellano.</title>
+<link rel="stylesheet" type="text/css" href="/templates/default/js/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/templates/default/js/jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.custom.min.css">
+<link rel="stylesheet" type="text/css" href="/templates/default/css/global.css">
+<link rel="stylesheet" type="text/css" href="/templates/default/css/global2.css">
+<link rel="stylesheet" type="text/css" href="/templates/default/css/programacionnet_calendar_skin.css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/templates/default/css/font-awesome.min.css">
+<script src='https://www.google.com/recaptcha/api.js' type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/jquery/jquery-1.11.3.min.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.min.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<link href="/templates/default/css/prettify.css" type="text/css" rel="stylesheet" />
+<script type="904db4d6e79671e823f7b264-text/javascript" src="/templates/default/js/prettify.js"></script>
+<script src="/templates/default/js/bootstrap/js/bootstrap.min.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/bootstrap/ie10/ie10-viewport-bug-workaround.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/calendar.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/Base64.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script src="/templates/default/js/funciones.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script type="904db4d6e79671e823f7b264-text/javascript" src="/templates/default/js/tinymce7/tinymce.min.js"></script>
+<script src="/templates/default/js/jobs_searcher.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+	
+	$(document).ready(function(){
+	    $('[data-toggle="tooltip"]').tooltip();
+	});
+	
+	</script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+      window.addEventListener("load", function(){
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#000"
+          },
+          "button": {
+            "background": "#f1d600"
+          }
+        },
+        "content": {
+          "message": "Utilizamos cookies propias y de terceros para mejorar nuestros servicios y mostrarle publicidad relacionada con sus preferencias mediante el an&aacute;lisis de sus h&aacute;bitos de navegaci&oacute;n. Si contin&uacute;a navegando, consideramos que acepta su uso. Puede cambiar la configuraci&oacute;n u obtener m&aacute;s informaci&oacute;n",
+          "dismiss": "Adelante",
+          "link": "M&aacute;s info",
+          "href": "https://colorvivo.com/privacidad-cookies/"
+        }
+      })});
+  </script>
+<script src="//load.sumome.com/" data-sumo-site-id="f1a0c9d6780c65655702f42ed8788010b793ac34a4fe615d2c85fc2e4ecea9e4" async="async" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u, i) {
+    if (!document.getElementById(i)){
+      e.async = 1;
+      e.src = u;
+      e.id = i;
+      f.parentNode.insertBefore(e, f);
+    }
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/mediosyredes-programacionnet/loader.js',
+  'tb_loader_script');
+</script>
+</head>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="904db4d6e79671e823f7b264-"></script><body onload="prettyPrint();init('codetext');">
+<div id="content" class="container-fluid">
+<div class="row">
+<div class="col-md-12" style="padding:0px;margin:0px;">
+<!DOCTYPE html>
+<header>
+<nav id="top">
+<div class="container">
+<div class="row">
+<div class="col-md-3 text-center">
+<a href="/"><img src="/templates/default/imgs/logo.png" alt="Programacion.net" title="Programacion.net" class="logo"></a>
+</div>
+<div>
+<div class="col-md-5 col-md-offset-4 text-center hidden-xs hidden-sm">
+<div class="login-vertical">
+<span class="glyphicon glyphicon-user"><a></span><a href="/login">Con&eacute;ctate</a> o <a href="/registro">Reg&iacute;strate</a>
+</div>
+</div>
+<div class="col-md-3 col-md-offset-7 text-center hidden-md hidden-lg">
+<div class="panel-group" role="tablist">
+<div class="panel panel-default">
+<div class="login-vertical login-vertical-collapsed">
+<span class="glyphicon glyphicon-user"><a></span><a href="/login">Con&eacute;ctate</a> o <a href="/registro">Reg&iacute;strate</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav id="center" class="navbar navbar-static-top" style="z-index:2">
+<div class="container">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li id="menu-inicio"><a href="/">Inicio</a></li>
+<li id="menu-articulos">
+<a href="/articulos">
+Art&iacute;culos
+</a>
+<div id="submenu-articulos" class="dropdown-menu hidden-xs submenu">
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title ">PROGRAMACI&Oacute;N GENERAL</span>
+<ul class="list-unstyled">
+<li><a href="/articulos/c">C / C++ / C#</a></li>
+<li><a href="/articulos/java">Java</a></li>
+<li><a href="/articulos/visualbasic">Visual Basic</a></li>
+<li><a href="/articulos/objectivec">Objective-C</a></li>
+<li><a href="/articulos/python">Python</a></li>
+<li><a href="/articulos/perl">Perl</a></li>
+<li><a href="/articulos/ruby">Ruby</a></li>
+<li><a href="/articulos/delphi">Delphi</a></li>
+</ul>
+</div>
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title">PROGRAMACI&Oacute;N WEB</span>
+<ul>
+<li><a href="/articulos/asp">ASP</a></li>
+<li><a href="/articulos/php">PHP</a></li>
+<li><a href="/articulos/html">HTML</a></li>
+<li><a href="/articulos/css">CSS</a></li>
+<li><a href="/articulos/javascript">Javascript</a></li>
+<li><a href="/articulos/serviciosweb">Aplicaciones prefabricadas</a></li>
+</ul>
+</div>
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title">BASES DE DATOS</span>
+<ul>
+<li><a href="/articulos/sql">SQL</a></li>
+<li><a href="/articulos/mongodb">Mongo DB</a></li>
+<li><a href="/articulos/bdoracle">Oracle</a></li>
+<li><a href="/articulos/idmysql">MySQL</a></li>
+<li><a href="/articulos/sqlserver">SQL Server</a></li>
+</ul>
+</div>
+<div class="submenu-section">
+<span class="submenu-category-title">PROGRAMACI&Oacute;N APPs</span>
+<ul>
+<li><a href="/articulos/android">Android</a></li>
+<li><a href="/articulos/ios">iOS</a></li>
+<li><a href="/articulos/windowsphone">WindowsPhone</a></li>
+<li><a href="/articulos/blackberry">BlackBerry</a></li>
+</ul>
+</div>
+</div>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+						
+							$(function(){
+						    $("#menu-articulos").hover(            
+						            function() {
+						                $('#submenu-articulos', this).stop( true, true ).fadeIn("fast");
+						            },
+						            function() {
+						                $('#submenu-articulos', this).stop( true, true ).fadeOut("fast");
+						            });
+						    });
+						
+						</script>
+</li>
+<li id="menu-tutoriales">
+<a href="/codigos" class="dropdown-toggle">
+Tutoriales
+<span class="sr-only">(current)</span>
+</a>
+<div id="submenu-tutoriales" class="dropdown-menu hidden-xs submenu">
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title ">PROGRAMACI&Oacute;N GENERAL</span>
+<ul class="list-unstyled">
+<li><a href="/codigos/c">C / C++ / C#</a></li>
+<li><a href="/codigos/java">Java</a></li>
+<li><a href="/codigos/visualbasic">Visual Basic</a></li>
+<li><a href="/codigos/objectivec">Objective-C</a></li>
+<li><a href="/codigos/python">Python</a></li>
+<li><a href="/codigos/perl">Perl</a></li>
+<li><a href="/codigos/ruby">Ruby</a></li>
+<li><a href="/codigos/delphi">Delphi</a></li>
+</ul>
+</div>
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title">PROGRAMACI&Oacute;N WEB</span>
+<ul>
+<li><a href="/codigos/asp">ASP</a></li>
+<li><a href="/codigos/php">PHP</a></li>
+<li><a href="/codigos/html">HTML</a></li>
+<li><a href="/codigos/css">CSS</a></li>
+<li><a href="/codigos/javascript">Javascript</a></li>
+<li><a href="/codigos/serviciosweb">Aplicaciones prefabricadas</a></li>
+</ul>
+</div>
+<div class="submenu-section submenu-right-separator">
+<span class="submenu-category-title">BASES DE DATOS</span>
+<ul>
+<li><a href="/codigos/sql">SQL</a></li>
+<li><a href="/codigos/mongodb">Mongo DB</a></li>
+<li><a href="/codigos/bdoracle">Oracle</a></li>
+<li><a href="/codigos/idmysql">MySQL</a></li>
+<li><a href="/codigos/sqlserver">SQL Server</a></li>
+</ul>
+</div>
+<div class="submenu-section">
+<span class="submenu-category-title">PROGRAMACI&Oacute;N APPs</span>
+<ul>
+<li><a href="/codigos/android">Android</a></li>
+<li><a href="/codigos/ios">iOS</a></li>
+<li><a href="/codigos/windowsphone">WindowsPhone</a></li>
+<li><a href="/codigos/blackberry">BlackBerry</a></li>
+</ul>
+</div>
+</div>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+						
+							$(function(){
+						    $("#menu-tutoriales").hover(            
+						            function() {
+						                $('#submenu-tutoriales', this).stop( true, true ).fadeIn("fast");
+						            },
+						            function() {
+						                $('#submenu-tutoriales', this).stop( true, true ).fadeOut("fast");
+						            });
+						    });
+						
+						</script>
+</li>
+<li id="menu-noticias"><a href="/noticias">Noticias</a></li>
+<li id="menu-foros"><a href="/foros">Foros</a></li>
+<li id="menu-eventos"><a href="/eventos">Eventos</a></li>
+<li id="menu-empleo"><a href="/empleo">Empleo</a></li>
+</ul>
+<form action="https://programacion.net/buscar/" class="navbar-form navbar-right" id="cse-search-box">
+<div>
+<input type="hidden" name="cx" value="partner-pub-2841178153102000:6309713372" />
+<input type="hidden" name="cof" value="FORID:10" />
+<input type="hidden" name="ie" value="UTF-8" />
+<input type="text" name="q" size="20" style="border:0px;" />
+<input type="submit" name="sa" value="Buscar" />
+</div>
+</form>
+<script type="904db4d6e79671e823f7b264-text/javascript" src="https://www.google.es/coop/cse/brand?form=cse-search-box&amp;lang=es"></script>
+</div>
+</div>
+</nav>
+<nav id="bottom">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-left">
+<ol itemscope itemtype="https://schema.org/BreadcrumbList" style="margin-left: -40px;">
+<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" style="list-style: none; display: inline">
+<a itemprop="item" href="/" class="btn btn-default btn-md" style="padding-left:0px;padding-right:0px;">
+<span class="glyphicon glyphicon-home">
+<span class="icon-text" itemprop="name" style="margin-left: -3px;">Inicio</span>
+<meta itemprop="position" content="1" />
+</span>
+</a>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</nav>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+
+		// AQU√ç SE RESALTA LA SECCI√ìN DONDE NOS ENCONTRAMOS
+				var menu_item = "#menu-templates";
+		
+		
+		$(menu_item).addClass('active');
+		
+		// Cuando pulsamos un elemento debe esconderse la barra de navegaci√≥n
+		$('.nav a').on('click', function(){
+			if ($(".navbar-toggle").is(":visible")) {
+				$(".btn-navbar").click(); //bootstrap 2.x
+		    	$(".navbar-toggle").click() //bootstrap 3.x by Richard
+			};		    
+		});
+		
+	</script>
+</header>
+
+<div id="popup-conexion" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4 class="modal-title">Con&eacute;ctate a Programacion.net</h4>
+</div>
+<div class="modal-body">
+<form action="" method="POST" name="login">
+<input type="text" name="email_login" id="email_login" placeholder="E-mail" class="form-control">
+<input type="password" name="pass" id="pass" placeholder="Contrase&ntilde;a" class="form-control">
+<button class="article-view-new-comment-btn" type="submit">Conectarme a Programacion.net</button>
+</form>
+</div>
+<div class="modal-footer">
+<a href="/olvide_mi_contrasena">&iquest;Olvidaste tu contrase&ntilde;a?</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 text-center" style="padding-left:0px;">
+<div class="container">
+<div class="col-md-9" style="padding-left:0px;">
+<div class="row">
+<img src="/templates/default/imgs/error-404.jpg" width="100%" style="margin-top:12px;margin-bottom:12px;">
+</div>
+</div>
+<div class="col-md-3 text-left hidden-xs hidden-sm">
+
+<div id="fb-root"></div>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+	
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	
+</script>
+
+<aside>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-12">
+<a href="/foros">
+<img src="/templates/default/imgs/foro.png" alt="Foro" class="forum-banner">
+</a>
+</div>
+</div>
+<div class="row">
+<center>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2841178153102000" data-ad-slot="1381974578" data-ad-format="link"></ins>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+</center>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="social-title">NUESTRAS REDES</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<a href="https://www.facebook.com/programacionencastellano" target="_blank">
+<img src="/templates/default/imgs/facebook-square.png" alt="Facebook" class="social-icon">
+</a>
+<a href="https://twitter.com/noprog" target="_blank">
+<img src="/templates/default/imgs/twitter-square.png" alt="Twitter" class="social-icon">
+</a>
+<a href="https://plus.google.com/112941540708461191492/about?gl=es&hl=es" target="_blank">
+<img src="/templates/default/imgs/googleplus-square.png" alt="GooglePlus" class="social-icon">
+</a>
+<a href="/feeds_rss/rssarticle.xml" target="_blank">
+<img src="/templates/default/imgs/rss-square.png" alt="RSS" class="social-icon">
+</a>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="social-title">&iquest;TE HA GUSTADO? IND&iacute;CANOSLO</p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="fb-page" data-href="https://facebook.com/programacionencastellano" data-width="240" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false">
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+</div>
+<div class="blank"></div>
+ <div class="row">
+<div id="footer" class="col-md-12" style="padding:0px;margin:0px;">
+<footer style="margin-top:12px;">
+<span id="top-link-block" class="hidden">
+<a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+<i class="glyphicon glyphicon-chevron-up"></i>
+</a>
+</span>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div style="padding-left:5%;padding-right:5%;margin-top:15px;">
+<div class="col-md-3">
+<div class="divheader-footer">
+<span class="header-footer">Secciones</span>
+</div>
+<li class="footer-link"><a href="/articulos">Art&iacute;culos</a></li>
+<li class="footer-link"><a href="/codigos">Tutoriales y c&oacute;digo fuente</a></li>
+<li class="footer-link"><a href="/foros">Foros</a></li>
+<li class="footer-link"><a href="/eventos">Eventos</a></li>
+<li class="footer-link"><a href="/empleo">Empleo</a></li>
+</div>
+<div class="col-md-3">
+<div class="divheader-footer">
+<span class="header-footer">Lenguajes Destacados</span>
+</div>
+<li class="footer-link"><a href="/php">PHP</a></li>
+<li class="footer-link"><a href="/java">Java</a></li>
+<li class="footer-link"><a href="/asp">ASP</a></li>
+<li class="footer-link"><a href="/bases-de-datos">Bases de datos</a></li>
+<li class="footer-link"><a href="/c">C</a></li>
+</div>
+<div class="col-md-3">
+<div class="divheader-footer">
+<span class="header-footer">Informaci&oacute;n</span>
+</div>
+<li class="footer-link"><a href="/datos_legales">Datos Legales</a></li>
+<li class="footer-link"><a href="/politica_de_privacidad">Pol&iacute;tica de privacidad</a></li>
+<li class="footer-link"><a href="/publicidad">Publicidad</a></li>
+</div>
+<div class="col-md-3">
+<div class="divheader-footer">
+<span class="header-footer">Contacto</span>
+</div>
+<li class="footer-link"><a href="/contacto">Contacte con nosotros</a></li>
+<li class="footer-link"><a href="/publicidad">Publicidad</a></li>
+<li class="footer-link"><a href="https://www.facebook.com/programacionencastellano" target="_blank">
+<img src="/templates/default/imgs/facebook-square.png" alt="Facebook" class="social-icon" style="margin:0px;margin-right:5px;margin-top:10px;">
+</a>
+<a href="https://twitter.com/noprog" target="_blank">
+<img src="/templates/default/imgs/twitter-square.png" alt="Twitter" class="social-icon" style="margin:0px;margin-right:5px;margin-top:10px;">
+</a></li>
+</div>
+</div>
+<div class="col-md-12 text-center pie">
+<a href="https://colorvivo.com" target="_blank">Dise&ntilde;o web y desarrollo web</a>. Un proyecto de los <a href="https://carrero.es" target="_blank">hermanos Carrero</a>. <br /><br /><strong>Alojado en</strong> <a href="https://www.stackscale.es/" target="_blank">cloud privado Stackscale</a><br>
+<strong>M&aacute;s internet</strong>: <a href="https://password.es" target="_blank">Password</a> | <a href="https://getfavicon.com" target="_blank">Favicon</a> | <a href="https://face.co" target="_blank">Crear un Avatar</a>
+</div>
+<div class="row">
+<div class="col-md-12">
+<p class="footer-text">Copyright &copy; 1998-2017 Programaci&oacute;n en Castellano. Todos los derechos reservados</p>
+</div>
+</div>
+<div class="row">
+
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script type="904db4d6e79671e823f7b264-text/javascript">
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "18766505" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=18766505&cv=2.0&cj=1" />
+</noscript>
+
+</div>
+</div>
+</div>
+<style>
+      
+      html{height: 100%;}
+      body{height: 100%;}
+      
+    </style>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+      
+      // Ocultar el bot√≥n back-to-top
+      $(window).scroll(function()
+      {
+        if ($(window).scrollTop() && 
+            !($(window).height() + $(window).scrollTop() > $('#footer').position().top))
+        {
+          if($('#top-link-block').hasClass("hidden"))
+          {
+            $('#top-link-block').removeClass("hidden");
+          }
+          $('#top-link-block:hidden').stop(true, true).fadeIn();
+        }
+        else
+        {
+          $('#top-link-block').stop(true, true).fadeOut();
+        }               
+      });
+
+      // Sticky Footer
+      $(window).load(function()
+      {
+        $(window).resize(function()
+        {
+          $('.blank').height(0);
+          if ($('#content').outerHeight() < $(window).height())
+          {
+            $('.blank').height($(window).height()-$('#content').outerHeight());
+          };
+        });
+        $(window).resize();
+      });
+      
+    </script>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-50825266-2', 'programacion.net');
+	ga('require', 'displayfeatures');
+	ga('send', 'pageview');
+	</script>
+<script src="//static.getclicky.com/js" type="904db4d6e79671e823f7b264-text/javascript"></script>
+<script type="904db4d6e79671e823f7b264-text/javascript">clicky.init(208180);</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/208180ns.gif" /></p></noscript>
+<script type="904db4d6e79671e823f7b264-text/javascript">
+  window._taboola = window._taboola || [];
+  _taboola.push({flush: true});
+</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="904db4d6e79671e823f7b264-" defer=""></script></body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>link-out-dark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(1.000000, 1.000000)">
+            <path d="M0,0 L16,0 L16,16 L0,16 L0,0 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+            <path d="M12.6666667,12.6666667 L3.33333333,12.6666667 L3.33333333,3.33333333 L8,3.33333333 L8,2 L3.33333333,2 C2.59333333,2 2,2.6 2,3.33333333 L2,12.6666667 C2,13.4 2.59333333,14 3.33333333,14 L12.6666667,14 C13.4,14 14,13.4 14,12.6666667 L14,8 L12.6666667,8 L12.6666667,12.6666667 L12.6666667,12.6666667 Z M9.33333333,2 L9.33333333,3.33333333 L11.7266667,3.33333333 L5.17333333,9.88666667 L6.11333333,10.8266667 L12.6666667,4.27333333 L12.6666667,6.66666667 L14,6.66666667 L14,2 L9.33333333,2 L9.33333333,2 Z" id="Shape" fill-opacity="0.543846241" fill="#000000" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
