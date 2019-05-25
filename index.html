@@ -808,28 +808,24 @@ end</code></pre>
     
                 <section>
                     <h2>Implementando FancyMarkup</h2>
-                    <pre class="hljs" data-trim>
-                                <code>
-    class FancyMarkup
-      attr_accessor :indents, :html
-      def initialize
-        @indents = 0
-        @html = ''
-      end
-      def method_missing(m, *args, &block
-       tag(m, args, &block)
-      end
-      def document(*args, &block)
-        tag(:html, args, &block)
-      end
-      #..
-    end
-                                </code>
-                            </pre>
+                    <pre class="hljs" data-trim><code>
+class FancyMarkup
+  attr_accessor :indents, :html
+  def initialize
+    @indents = 0
+    @html = ''
+  end
+  def method_missing(m, *args, &block
+   tag(m, args, &block)
+  end
+  def document(*args, &block)
+    tag(:html, args, &block)
+  end
+  #..
+end</code></pre>
                 </section>
                 <section>
-                            <pre class="hljs-html" data-trim>
-                                <code>private
+                            <pre class="hljs-html" data-trim><code>private
     def tag(html_tag, args, &block)
       content = find_content(args)
       options = html_options(find_options(args))
@@ -841,28 +837,25 @@ end</code></pre>
         html << "\n#{indent}"
       end
       html << "<{html_tag}>"
-    end
-                                </code>
-                            </pre>
+    end</code></pre>
                 </section>
                 <section>
                             <pre class="hljs" data-trim>
                                 <code>def find_content(args)
-      args.detect{|arg| arg.is_a? String}
-    end
-    def find_options(args)
-      args.detect{|arg| arg.is_a? Hash} || {}
-    end
-    def indent
-      ' ' * indents
-    end
-    def html_options(options)
-      options.collect{ |key, value|
-        value = value.to_s.gsub('"', '\"')
-        " #{key}=\"#{value}\""
-      }.join('')
-    end</code>
-                            </pre>
+  args.detect{|arg| arg.is_a? String}
+end
+def find_options(args)
+  args.detect{|arg| arg.is_a? Hash} || {}
+end
+def indent
+  ' ' * indents
+end
+def html_options(options)
+  options.collect{ |key, value|
+    value = value.to_s.gsub('"', '\"')
+    " #{key}=\"#{value}\""
+  }.join('')
+end</code></pre>
                 </section>
     
             </section>
