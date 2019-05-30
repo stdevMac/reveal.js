@@ -1,18 +1,21 @@
 <!doctype html>
 <html>
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>reveal.js</title>
-
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		        <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+   
+           <title>Sistema Operativo</title>
+   
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+          <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.icns">
+  
+          <link rel="stylesheet" href="css/reveal.css">
+          <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  
 
 		<!-- Printing and PDF exports -->
+		
 		<script>
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
@@ -24,8 +27,79 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Persistencia....Archivos y Directorios</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Archivos y Directorios</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Interfaz del Sistema de Archivos</h2>
+					</section>
+					<section>
+						<h2>Crear Archivos</h2>
+						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
+					</section>
+					<section>
+						<h2>Leer y escribir Archivos</h2>
+						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
+						<pre><code>$ echo Hello > hello.txt 
+$ cat hello.txt
+hello
+$ 
+						</code></pre>
+					</section>
+					<section>
+						<h2>...fsync...</h2>
+					</section>
+					<section>
+						<h2>Obtener metadatos de los archivos</h2>
+						<ul>
+							<li>stat</li>
+							<li>fstat</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Trabajo con Directorios</h2>
+						<ul>
+							<li>Crearlo</li>
+							<li>Mover</li>
+							<li>Eliminarlo</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Los links...</h2>
+					</section>
+					<section>
+						<h2>Hard Link</h2>
+						<pre><code>$ ln target link_name</code></pre>
+					</section>
+					<section>
+						<h2>Soft Link</h2>
+						<pre><code>$ ln --symbolic target link_name</code></pre>
+					</section>
+					<section>
+						<h2>Resumiendo</h2>
+						<img src="diference.jpg" >
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Montando un Sistema de Ficheros</h2>
+						<pre><code>sudo mount /dev/sda3 /mnt
+for i in /dev /dev/pts /proc /sys; do sudo mount -B $i /mnt$i; done
+sudo chroot /mnt
+sudo grub-install /dev/sda3
+sudo update-grub
+exit
+sudo for i in /sys /proc /dev/pts /dev; do sudo umount /mnt$i; done</code></pre>
+					</section>
+				</section>
 			</div>
 		</div>
 
