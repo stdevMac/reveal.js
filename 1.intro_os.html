@@ -103,7 +103,7 @@ D
 					</section>
 					<section>
 						<h3>Que es la Virtualizacion de la CPU?</h3>
-						<h3><p>Resulta que con el sistema operativo, con un poco de ayuda del Hardware esta a cargo de esta ilusion, i.e., la ilusion de que el sistema tiene un gran numero de CPU virtualess. Convertiendo un CPU (o pequeno numero de ellas) en aparentemente un infinito numero de CPU's y permitiendo así a muchos programas que aparentemente se ejecutan a la vez es lo que llamamos virtualizar la CPU</p></h3>
+						<p>Resulta que con el sistema operativo, con un poco de ayuda del Hardware esta a cargo de esta ilusion, i.e., la ilusion de que el sistema tiene un gran numero de CPU virtualess. Convertiendo un CPU (o pequeno numero de ellas) en aparentemente un infinito numero de CPU's y permitiendo así a muchos programas que aparentemente se ejecutan a la vez es lo que llamamos virtualizar la CPU</p>
 					</section>
 				</section>
 				<section>
@@ -169,7 +169,7 @@ $ ./mem &; ./mem &
 					</section>
 					<section>
 						<h3>Que es la Virtualizacion de la Memoria?</h3>
-						<h3><p>Como se puede apreciar en el ejemplo, cada programa tiene asignado memoria en la misma direccion, y aun asi ambos procesos se van actualizando. Eso es que cada programa que se encuentra corriendo tiene su propia memoria privada, en vez de compartir la misma memoria fisica con otros procesos corriendo. De hecho, eso es lo que esta pasando cuando el SO esta virtalizando la memoria.</p></h3>
+						<p>Como se puede apreciar en el ejemplo, cada programa tiene asignado memoria en la misma direccion, y aun asi ambos procesos se van actualizando. Eso es que cada programa que se encuentra corriendo tiene su propia memoria privada, en vez de compartir la misma memoria fisica con otros procesos corriendo. De hecho, eso es lo que esta pasando cuando el SO esta virtalizando la memoria.</p>
 					</section>
 				</section>
 				<section>
@@ -219,7 +219,7 @@ Initial value : 0
 Final value : 2000</code></pre>
 					</section>
 					<section>
-						<h3>Corriendo Multiples isntancias</h3>
+						<h3>Corriendo Multiples instancias</h3>
 						<pre><code>$ ./thread 100000
 Initial value : 0
 Final value : 143012 // huh??
@@ -230,8 +230,8 @@ Final value : 137298 // what the??</code></pre>
 					</section>
 					<section>
 						<h3>Que son los Hilos (threads)?</h3>
-						<h3><p>Se puede pensar en un hilo como una funcion corriendo con el mismo espacio de memoria que otras funciones, con mas de una de ellas activada a la vez.</p></h3>
-						<h3>La razon de esas salidas distintas es contador compartido que existe en el codigo, pero este es uno de los problemas de concurrencia.</h3>
+						<p>Se puede pensar en un hilo como una funcion corriendo con el mismo espacio de memoria que otras funciones, con mas de una de ellas activada a la vez.</p>
+						<p>La razon de esas salidas distintas es contador compartido que existe en el codigo, pero este es uno de los problemas de concurrencia.</p>
 					</section>
 					
 				</section>
@@ -260,9 +260,9 @@ int main(int argc, char *argv[]) {
 					</section>
 					<section>
 						<h3>El anterior es un codigo cualquiera para abrir un archivo</h3>
-						<h3>
+						<p>
 							En la memoria del sistema, los datos pueden perderse fácilmente, ya que los dispositivos, como DRAM, almacenan los valores de forma volátil; cuando se corta la alimentación o el sistema falla, se pierden todos los datos de la memoria. Por lo tanto, necesitamos hardware y software para poder almacenar datos
-							persistentemente. Tal almacenamiento es por lo tanto crítico para cualquier sistema. El hardware viene en forma de algún tipo de entrada/salida. Todo esto se sostiene sobre un sistema de archivos, que es la base de la persistencia de datos.</h3>
+							persistentemente. Tal almacenamiento es por lo tanto crítico para cualquier sistema. El hardware viene en forma de algún tipo de entrada/salida. Todo esto se sostiene sobre un sistema de archivos, que es la base de la persistencia de datos.</p>
 					</section>
 				</section>
 				<section>
