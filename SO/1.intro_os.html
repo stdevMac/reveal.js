@@ -7,11 +7,11 @@
            <title>SO-Intro</title>
    
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
-          <link rel="icon" href="favicon.ico" type="image/x-icon">
-      <link rel="icon" href="favicon.icns">
+          <link rel="icon" href="../favicon.ico" type="image/x-icon">
+      <link rel="icon" href="../favicon.icns">
   
-          <link rel="stylesheet" href="css/reveal.css">
-          <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+          <link rel="stylesheet" href="../css/reveal.css">
+          <link rel="stylesheet" href="../css/theme/solarized.css" id="theme">
   
 
 		<!-- Printing and PDF exports -->
@@ -20,7 +20,7 @@
 			var link = document.createElement( 'link' );
 			link.rel = 'stylesheet';
 			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 	</head>
@@ -273,8 +273,8 @@ int main(int argc, char *argv[]) {
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
 
 		<script>
 			// More info about config & dependencies:
@@ -282,10 +282,10 @@ int main(int argc, char *argv[]) {
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
