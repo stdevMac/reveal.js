@@ -1,0 +1,1309 @@
+<!doctype html>
+<<<<<<< HEAD
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Ruby – La gema de los LP</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.icns">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/arduino-light.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <script src="plugin/highlight/highlight.js"></script>
+</head>
+
+<body>
+
+<div class="reveal">
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h1>Ruby</h1>
+            <h3>La gema de los Lenguajes de Programación</h3>
+            <small>CubanTech
+            </small>
+        </section>
+
+        <section>
+            <section>
+                <h2>¿Qué es Ruby??</h2>
+            </section>
+            <section>
+                <blockquote
+                        cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                    &ldquo;Quiero minimizar mi frustración durante la programación,
+                    así que quiero minimizar mi esfuerzo en la programación. Ese fue mi objetivo principal
+                    en el diseño de Ruby. Quiero divertirme programando.
+                    --Yukihiro Matsumoto(Matz), creador de Ruby.&rdquo;
+                </blockquote>
+            </section>
+            <section>
+                <blockquote
+                        cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                    &ldquo;Ruby es un lenguaje "el mejor de su clase" que se ha
+                    ensamblado a partir de las mejores y más poderosas funciones
+                    de programación que se encuentran en sus predecesores.
+                    --Jim White.&rdquo;
+                </blockquote>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Introducción a Ruby</h2>
+            </section>
+            <section>
+                <h2>Variables</h2>
+                <pre><code class="hljs" data-trim>
+a = 1
+puts a
+
+large_number = 1
+p large_number
+
+apples = 1
+print apples
+
+number = 2 + 3 * 4
+p number</code></pre>
+                <ul>
+                    <li>Expresiones en Ruby se evaluan de Derecha a Izquierda.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tipos Buid-In</h2>
+            </section>
+            <section>
+                <h2>Números</h2>
+                <ul>
+                    <li>
+                        1_248.56 =>
+                        Un número se define como una serie de dígitos, usando un punto como una marca décimal, y es
+                        opcional usar un
+                        guión bajo(_) para separar los miles.
+                    </li>
+                    <li>3.0 / 2 =>
+                        Operaciones Matemáticas resultan en números de punto flotante, excepto cuando todos los numeros
+                        utilizados son enteros.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Strings</h2>
+                <pre><code class="hljs" data-trim>> s = 'composed'
+=> "composed"
+>"This is a #{s} String!"
+=> "This is a composed String"
+>'And this is another one.'
+=> "And this is another one."
+> "hi" * 3
+=> "hihihi"
+> "hello".upcase
+=> "HELLO"
+> "hello".capitalize
+=> "Hello"
+> "hello".length
+=> 5
+> "hello".reverse
+=> "olleh"</code></pre>
+            </section>
+            <section>
+                <h2>True, False and Nil</h2>
+                <ul>
+                    <li>
+                        El objeto 'true' representa 'verdad', mientras 'false' representa el opuesto de el.
+                    </li>
+                    <li>
+                        El objeto 'nil' representa 'nada'
+                    </li>
+                </ul>
+                <span style="display: inline-block;" class="fragment fade-right ">¿Un poco Filosófico no?
+                    Pronto sera natural.</span>
+            </section>
+            <section>
+                <h2>Simbolos</h2>
+                <h4>:something</h4>
+                <ul>
+                    <li>
+                        Un simbolo se crea apartir de la de la adición de dos puntos(:) delante de una palabra.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>Una regla es que si el texto son datos, usar strings. Si el texto es código, usa simbolos,
+                        especialmente si es usado como llaves y hashes.
+                    </li>
+                    <li>Otra forma de verlos es que realmente no son texto. En vez de eso son identificadores únicos,
+                        como números o códigos de barra. Es decir que son estáticos.
+                    </li>
+                    <li>Técnicamente: Si se usa un string que contiene el mismo texto múltiples veces, este se creará
+                        cada vez que se use. Por otro lado, si se usa como simbolo, entonces solo un objeto sera creado
+                        y reusado
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Strings</th>
+                        <th>Simbolos</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>> "a string".object_id</td>
+                        <td>> :a_symbol.object_id</td>
+                    </tr>
+                    <tr>
+                        <td>=> 70358630335100</td>
+                        <td>=> 1086748</td>
+                    </tr>
+                    <tr>
+                        <td>> "a string".object_id</td>
+                        <td>> :a_symbol.object_id</td>
+                    </tr>
+                    <tr>
+                        <td>=> 70358640625960</td>
+                        <td>=> 1086748</td>
+                    </tr>
+                    <tr>
+                        <td>> "a string".object_id</td>
+                        <td>> :a_symbol.object_id</td>
+                    </tr>
+                    <tr>
+                        <td>=> 70358644379620</td>
+                        <td>=> 1086748</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Cool Arrays</h2>
+                <h3>array = Array.new</h3>
+                <pre><code class="hljs" data-trim>> numbers = [1, 2, 3, 4, 5]
+=> [1, 2, 3, 4, 5]
+
+> numbers[0]
+=> 1
+
+> numbers[5]
+=> nil
+
+> numbers << :another
+=> [1, 2, 3, 4, 5, :another]
+                </code></pre>
+            </section>
+            <section>
+                <h5>Otros ejemplos</h5>
+                <pre><code  class="hljs">> [1, 2, 3].length
+=> 3
+
+> [3, 1, 2].sort
+=> [1, 2, 3]
+
+> [1, nil, 2, 3, nil].compact
+=> [1, 2, 3]
+
+> [1, 2, 3, 4].rotate(2)
+=> [3, 4, 1, 2]
+
+> [[1, 2, 3], [4, 5, 6], [7, 8, 9]].transpose
+=> [[1, 4, 7], [2, 5, 8], [3, 6, 9]]</code></pre>
+            </section>
+            <section>
+                <h2>Hashes</h2>
+                <pre class="hljs" data-trim><code>{ :one => "eins", :two => "zwei", :three => "drei" }
+{ one: "eins", two: "zwei", three: "drei" }
+
+> dictionary.methods
+...
+
+> dictionary.keys
+=> [:one, :two, :three]
+
+> dictionary.length
+=> 3
+> dictionary.size
+=> 3
+
+> { "one" => "eins" }.merge({ "two" => "zwei" })
+=> { "one" => "eins", "two" => "zwei" }</code></pre>
+            </section>
+            <section>
+                <h2>Definiendo clases</h2>
+                <pre class="hljs" data-trim>
+							<code>class Person
+  def initialize(name)
+    @name = name
+  end
+  def password=(password)
+    @password = password
+  end
+end
+
+person = Person.new("Ada")
+person.password = "super secret"</code>
+						</pre>
+                <ul>
+                    <li>Los nombres de las clases tienen que empezar con Mayúsculas, y deben usar CamelCase. Nombres de
+                        variables y métodos deberían usar snake_case.
+                    </li>
+                </ul>
+            </section>
+        </section>
+
+        <!-- Section for Blocks -->
+        <section>
+            <section>
+                <h2>¿Qué son los tan famosos bloques?</h2>
+                <pre><code class="hljs" data-trim>3.times do
+# some code
+end </code></pre>
+                <pre><code class="hljs" data-trim>3.times { # some code }</code></pre>
+            </section>
+            <section>
+                <h3>¿Cómo usarlos?</h3>
+                <pre><code class="hljs" data-trim>def block_caller
+  puts "some code"
+  yield
+  puts "other code"
+end
+
+#some code
+# the block is passed as an argument to the method.
+block_caller { puts "My own block" }
+#My own block
+#other code
+                </code></pre>
+                <ul><li>LocalJumpError!!</li></ul>
+            </section>
+            <section>
+                <pre><code class="hljs" data-trim>def block_caller
+  puts "some code" 
+  if block_given? 
+    yield
+  else
+    puts "default"
+  end
+  puts "other code"
+end
+block_caller 
+# some code
+# default
+# other code
+block_caller { puts "not defaulted"}
+# some code
+# not defaulted
+# other code</code></pre>
+            </section>
+            <section>
+                <h3>Entonces... ¿Necesitas argumentos en ellos?</h3>
+                <pre><code class="hljs"></code>def yield_n(n)
+  p = yield n if block_given?
+  p || n 
+end
+yield_n(12) {|n| n + 7 } 
+#=> 19 
+yield_n(4) 
+#=> 4</pre>
+            </section>
+            <section>
+                <pre><code class="hljs">class Application
+  def configuration
+    @configuration ||= Configuration.new
+    block_given? ? yield(@configuration) : @configuration
+  end
+end
+class Configuration; end
+
+app = Application.new 
+app.configuration do |config| 
+  puts config.class.name
+end
+# Configuration
+#=> nil 
+app.configuration
+#=> #<Configuration:0x2bf1d30></code></pre>
+            </section>
+        </section>
+
+        <section>
+            <h2>Jerarquía y Clases Básicas en Ruby</h2>
+            <img width="778" height="538" data-src="assets/jerarquia.png" alt="Jerarquia en Ruby">
+            <a href="#" class="navigate-down">
+            </a>
+        </section>
+
+        <section>
+            <section>
+                <h2>¿Qué son las Gemas?</h2>
+            </section>
+            <section>
+                <h2>Estructura estándar de organización de código</h2>
+                <pre class="hljs" data-trim>
+							<code>
+% tree freewill
+freewill/
+├── bin/
+│   └── freewill
+├── lib/
+│   └── freewill.rb
+├── test/
+│   └── test_freewill.rb
+├── README
+├── Rakefile
+└── freewill.gemspec
+							</code>
+						</pre>
+            </section>
+            <section>
+                <h2>El GemSpec</h2>
+                <pre class="ruby hljs" data-trim>
+							<code>
+% cat freewill.gemspec
+Gem::Specification.new do |s|
+  s.name        = 'freewill'
+  s.version     = '1.0.0'
+  s.summary     = "Freewill!"
+  s.description = "I will choose Freewill!"
+  s.authors     = ["Nick Quaranto"]
+  s.email       = 'nick@quaran.to'
+  s.homepage    = 'http://example.com/freewill'
+  s.files       = ["lib/freewill.rb", ...]
+end
+
+							</code>
+						</pre>
+            </section>
+            <section>
+                <h2>Gemas mas Utilizadas</h2>
+                <ul>
+                    <li>Rails</li>
+                    <li>CarrierWave</li>
+                    <li>Kaminari</li>
+                    <li>HAML</li>
+                    <li>AuthLogic</li>
+                    <li>Shoulda</li>
+                    <li>Nokogiri</li>
+                    <li>Sass</li>
+                    <li>Capistrano</li>
+                    <li>Bundler</li>
+                    <li>Resque</li>
+                </ul>
+            </section>
+        </section>
+
+        <!-- Section for implemettion of Class Documents -->
+        <section>
+            <section>
+                <pre><code class="hljs" data-trim>
+							class Documents
+							  include Enumerable
+
+							  attr_reader :text
+
+							  def initialize(text, &block)
+							    @text = text
+							    if block
+							      block.call self
+							    end
+							  end
+								# ...
+							end
+				</code></pre>
+                <ul>
+                    <li>¿Qué significa include?</li>
+                    <li>¿Qué son los bloques?</li>
+                </ul>
+
+            </section>
+            <section>
+                <pre><code class="hljs" data-trim>
+							# ...
+							def each
+						    @text.gsub(/\S+\b/) do |word|
+						      yield word
+						    end
+						  end
+
+						  def sort (&block)
+						    if block
+						      super block
+						    else
+						      super
+						    end
+						  end
+							# ...
+						</code></pre>
+                <ul>
+                    <li>Métodos virtuales</li>
+                    <li>Expresiones regulares</li>
+                </ul>
+            </section>
+            <section>
+						<pre><code class="hljs" data-trim>
+							def frequency
+						    hash = Hash.new()
+						    self.each do |word|
+						      if !hash[word]
+						        hash[word] += 1
+						      else
+						        hash[word] = 1
+						      end
+						    end
+						    hash
+						  end
+							def delete!(words)
+						    words.each do |word| @text.gsub!(/\b#{word}\b/,'') end
+						    @text
+						  end
+						</code></pre>
+                <p>
+                <ul>
+                    <li>Significado de los Simbolos !, ? y = al final de un método</li>
+                    <li>Sobre Escritura de métodos</li>
+                </ul>
+                </p>
+            </section>
+            <section>
+						<pre><code class="ruby hljs" data-trim>def こんにちは
+  puts 'means hello in Japanese'
+end
+def to_s
+	"El texto que represento es: #{@text}"
+end
+def downcase!
+ @text.downcase!
+end
+def delStopWords! (stopWords = %w[the doesn't does that indeed etc a in on])
+	stopWords.each { |word|
+		@text.gsub!(/\b#{word}\b/,'')
+	}
+	@text
+end</code></pre>
+                <ul>
+                    <li>Significado de %w</li>
+                    <li>Trabajo y funcionamiento de los strings</li>
+                </ul>
+            </section>
+            <section>
+						<pre><code class="ruby hljs" data-trim>
+def method_missing (name, *args, &block)
+  if contains_method name
+    method_name = name.to_s
+		method_name += '!'
+		to_ret = (Documents.new @text.dup)
+		to_ret.send((method_name), *args, &block)
+		to_ret
+  else
+    super(name, *args, &block)
+  end
+end
+def respond_to?(name)
+  self.methods.include? (name + '!')
+end
+						</code></pre>
+                <p>
+                <ul>
+                    <li>Dinamic Dispatch</li>
+                    <li>Como se definen argumentos Adicionales</li>
+                    <li>¿Qué son los mensajes en Ruby?</li>
+                </ul>
+                </p>
+            </section>
+            <section>
+						<pre><code class="ruby hljs" data-trim>
+private
+def contains_method name
+  self.methods.each do |method|
+    incoming_method = name.to_s
+    incoming_method += '!'
+    if method.to_s.eql?  incoming_method
+      return true
+    end
+  end
+  false
+end</code></pre>
+                <p>
+                <ul>
+                    <li>Control de Acceso a Datos</li>
+                </ul>
+                </p>
+            </section>
+        </section>
+
+               <!-- Section to compare Ruby vs Python -->
+               <section>
+                <section>
+                    <h2>
+                        <span style="display: inline-block;" class="fragment fade-right ">Ruby </span>
+                        <span style="display: inline-block;" class="fragment fade-up">vs ... </span>
+                        <span style="display: inline-block;" class="fragment fade-down ">Python ... </span>
+                    </h2>
+                </section>
+                <section>
+                    <h2>¿Zen de Python vs Filosofía de Ruby??</h2>
+                    <h4>The Zen of Python, by Tim Peters</h4>
+                    <pre><code class="hljs" data-trim>$ python
+    ...
+    >>> import this
+    ...
+                    </code></pre>
+                </section>
+                <section>
+                    <ul>
+                        <li>Beautiful is better than ugly.</li>
+                        <li>Explicit is better than implicit.</li>
+                        <li>Simple is better than complex.</li>
+                        <li>Complex is better than complicated.</li>
+                        <li>Flat is better than nested.</li>
+                        <li>Sparse is better than dense.</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>Readability counts.</li>
+                        <li>Special cases aren't special enough to break the rules.</li>
+                        <li>Although practicality beats purity.</li>
+                        <li>Errors should never pass silently.</li>
+                        <li>Unless explicitly silenced.</li>
+                        <li>In the face of ambiguity, refuse the temptation to guess.</li>
+                    </ul>
+                </section>
+                <section>
+                    <ul>
+                        <li>There should be one-- and preferably only one --obvious way to do it.</li>
+                        <li>Although that way may not be obvious at first unless you're Dutch.</li>
+                        <li>Now is better than never.</li>
+                        <li>Although never is often better than *right* now.</li>
+                        <li>If the implementation is hard to explain, it's a bad idea.</li>
+                        <li>If the implementation is easy to explain, it may be a good idea.</li>
+                        <li>Namespaces are one honking great idea -- let's do more of those!</li>
+                    </ul>
+                </section>
+    
+                <section>
+                    <h2>¿Cuán Dinámicos Son?</h2>
+                </section>
+                <section>
+                    <h2>Control de acceso a datos</h2>
+                    <ul>
+                        <li>En Ruby se puede!!</li>
+                        <ul>
+                            <li>private</li>
+                            <li>protected</li>
+                        </ul>
+                        <li>Exite un control significativo a los recursos a los que accede un agente externo</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Eficiencia(by bechmarks Game)</h2>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Ruby 2.6(Preview)</th>
+                            <th>Python 3.7</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>binary-trees</td>
+                            <td>38.36 s</td>
+                            <td>83.25 s</td>
+                        </tr>
+                        <tr>
+                            <td>n-body</td>
+                            <td>389.78 s</td>
+                            <td>850.24 s</td>
+                        </tr>
+                        <tr>
+                            <td>regex-redux</td>
+                            <td>15.16 s</td>
+                            <td>16.98 s</td>
+                        </tr>
+                        <tr>
+                            <td>pi-digits</td>
+                            <td>3.39</td>
+                            <td>3.48</td>
+                        </tr>
+                        <tr>
+                            <td>reverse-complemet</td>
+                            <td>32.95 s</td>
+                            <td>16.03 s</td>
+                        </tr>
+    
+                        </tbody>
+                    </table>
+                </section>
+            </section>
+
+        <!-- Section for Metaprogramacion -->
+        <section>
+                <section>
+                    <h2>
+                        <span style="display: inline-block;"
+                              class="fragment fade-right ">Más Magia => Metaprogramación</span>
+                    </h2>
+                    <span style="display: inline-block;" class="fragment fade-right ">
+                                <blockquote
+                                        cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                                    &ldquo;Metaprogramación es escribir código que manipula construcciones del lenguaje en tiempo de ejecución.&rdquo;
+                                </blockquote>
+                                <h3>Estático vs dinámico....en Metaprogramación</h3>
+                            </span>
+                    <ul>
+                        <li>C++ y sus templates</li>
+                        <li>Ruby, Código que se manipula a si mismo en tiempo de ejecución</li>
+                    </ul>
+                </section>
+            </section>
+            <!-- Section to implemet and work with DSL in Ruby -->
+            <section>
+                <section>
+                    <h2>DSL en Ruby</h2>
+                    <blockquote
+                            cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+                        &ldquo;Un DSL es un lenguaje informático
+                        especializado para un dominio de aplicación en particular. Esto contrasta con un
+                        lenguaje de propósito general (GPL), que es ampliamente aplicable en todos los dominios y carece de
+                        características especializadas para un dominio en particular.&rdquo;
+                    </blockquote>
+                </section>
+                <section>
+                    <h2>Rails routing</h2>
+                    <pre class="hljs" data-trim>
+                                <code>
+    Rails.application.routes.draw do
+      root 'pages#home'
+      resources :pages, only: [:index, :show]
+    end
+                                </code>
+                            </pre>
+                </section>
+                <section>
+                    <h2>Rspec</h2>
+                    <pre class="hljs" data-trim>
+                                <code>
+    describe Array do
+      describe "includes_subset?" do
+        it "finds subsets" do
+          a = [1,2,3,4,5]
+          b = [1,2]
+          expect(a.includes_subset?(b)).to eq(true)
+        end
+      end
+    end
+                                </code>
+                            </pre>
+                </section>
+                <section>
+                    <h2>Rake Task</h2>
+                    <pre class="hljs" data-trim>
+                                <code>
+    namespace :backup do
+      desc "Backup assets"
+      task :assets => :environment do
+        tar_assets
+      end
+    end
+                                </code>
+                            </pre>
+                </section>
+                <section>
+                    <h2>Capistrano</h2>
+                    <pre class="hljs" data-trim>
+    role :app, %w{deploy@localhost}
+    server 'localhost',
+      user: 'deploy',
+      roles: %w{app},
+      ssh_options: {
+        keys: %w(/home/deploy/.ssh/id_rsa),
+        auth_methods: 'publickey'
+      }
+                        </code>
+                            </pre>
+                </section>
+                <section>
+                    <h2>DB Migrations</h2>
+                    <pre class="hljs" data-trim>
+    class CreateUploads < ActiveRecord::Migration
+      def change
+        create_table :uploads do |t|
+          t.string :name
+          t.attachment :file
+          t.timestamps
+        end
+      end
+    end</code>
+                            </pre>
+                </section>
+    
+            </section>
+            <!-- Our own DSL for html generation -->
+            <section>
+                <section>
+                    <h2>
+                        Implementacion de un DSL en Ruby
+                    </h2>
+                    <h3>Implementemos un DSL para la generacion de HTML</h3>
+                    <a href="https://www.leighhalliday.com/creating-ruby-dsl">Link a la referencia</a>
+                </section>
+                <section>
+                    <h2>Y asi lucirá!</h2>
+                    <pre class="hljs" data-trim>
+                                <code>
+    output = FancyMarkup.new.document do
+      body do
+        div id: 'container' do
+          ul class: 'container' do
+            li 'Item 1', class: :active
+            li 'Item 2'
+          a 'pepe' ,href: '#'
+          end
+        end
+      end
+    end
+    
+    puts output
+                                </code>
+                            </pre>
+                </section>
+                <section>
+                    <h2>Y esta es la salida</h2>
+                    <pre class="hljs" data-trim>
+                                <code>
+    <html>
+     <body>
+      <div id="container">
+       <ul class="container">
+        <li class="active">Item 1</li>
+        <li>Item 2</li>
+        <a href="#">pepe</a>
+       </ul>
+      </div>
+     </body>
+    </html>
+                                </code>
+                            </pre>
+                </section>
+    
+                <section>
+                    <h2>Implementando FancyMarkup</h2>
+                    <pre class="hljs" data-trim><code>
+class FancyMarkup
+  attr_accessor :indents, :html
+  def initialize
+    @indents = 0
+    @html = ''
+  end
+  def method_missing(m, *args, &block
+   tag(m, args, &block)
+  end
+  def document(*args, &block)
+    tag(:html, args, &block)
+  end
+  #..
+end</code></pre>
+                </section>
+                <section>
+                            <pre class="hljs-html" data-trim><code>private
+    def tag(html_tag, args, &block)
+      content = find_content(args)
+      options = html_options(find_options(args))
+      html << "\n#{indent}<#{html_tag}#{options}>#{content}"
+      if block_given?
+        @indents += 1
+        instance_eval(&block)
+        @indents -= 1
+        html << "\n#{indent}"
+      end
+      html << "<{html_tag}>"
+    end</code></pre>
+                </section>
+                <section>
+                            <pre class="hljs" data-trim>
+                                <code>def find_content(args)
+  args.detect{|arg| arg.is_a? String}
+end
+def find_options(args)
+  args.detect{|arg| arg.is_a? Hash} || {}
+end
+def indent
+  ' ' * indents
+end
+def html_options(options)
+  options.collect{ |key, value|
+    value = value.to_s.gsub('"', '\"')
+    " #{key}=\"#{value}\""
+  }.join('')
+end</code></pre>
+                </section>
+    
+            </section>
+
+        <!-- Section for Rails -->
+        <section>
+            <section>
+                <h2>Ruby on Rails</h2>
+                <img width="478" height="538" data-src="assets/rails.png" alt="Yay! You are in Rails!">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section>
+                <h2>Que es Rails?</h2>
+                <blockquote cite="http://">
+                    &ldquo;Ruby on Rails es un web application framework escrito en Ruby. Utiliza el patrón de diseño
+                    Modelo-Vista-Controlador(MVC) para organizar la programación de la aplicacion.&rdquo;
+                </blockquote>
+
+            </section>
+            <section>
+                <h2>Arquitectura de RoR</h2>
+                <img width="778" height="538" data-src="assets/mvc.png" alt="Yay! You are in Rails!">
+                <a href="#" class="navigate-down">
+                </a>
+            </section>
+            <section>
+                <h2>Arquitectura en RoR</h2>
+                <ul>
+                    <li>
+                        <p>
+                            Un Modelo Mapea a una tabla en una Base de Datos
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Un Controlador es el componente que responde a peticiones externas del webserver a la
+                            aplicación, y
+                            responde a dicha petición externa determinando cual vista renderear.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Una vista es, en la configuración por defecto de Rails un archivo erb. Este es típicamente
+                            convertido
+                            a html en tiempo de ejecución.
+                        </p>
+                    </li>
+                </ul>
+
+            </section>
+            <section>
+                <h2>¿Qué es tan especial acerca de Rails?</h2>
+                <ul>
+                    <li>Otros frameworks usan generación extensiva de código, que le da al usuario un adelanto de
+                        productividad, y scripts de
+                        customización le permiten customizar dicho código en un pequeño número de puntos seleccionados
+                        cuidadosamente.
+                    </li>
+                    <ul>
+                        <li>Metaprogramación reemplaza estas dos técnicas primitivas y elimina sus desventajas</li>
+                        <li>Ruby es uno de los mejores lenguajes para metaprogramación, y Rails hace uso extensivo de
+                            dicha elemento.
+                        </li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Scaffolding</h2>
+                <ul>
+                    <li>$ rails generate scaffold Person name:string last_name:string number:integer</li>
+                </ul>
+                <pre class="hljs" data-trim><code>
+Running via Spring preloader in process 669
+      invoke  active_record
+      create    db/migrate/20181206042746_create_people.rb
+      create    app/models/person.rb
+      invoke    test_unit
+      create      test/models/person_test.rb
+      create      test/fixtures/people.yml
+      invoke  resource_route
+       route    resources :people
+      invoke  scaffold_controller
+      create    app/controllers/people_controller.rb
+      invoke    erb
+      create      app/views/people
+      create      app/views/people/index.html.erb
+      create      app/views/people/edit.html.erb
+      create      app/views/people/show.html.erb
+      create      app/views/people/new.html.erb
+      create      app/views/people/_form.html.erb
+      invoke    test_unit
+      create      test/controllers/people_controller_test.rb
+      create      test/system/people_test.rb
+      invoke    helper
+      create      app/helpers/people_helper.rb
+      invoke      test_unit
+      invoke    jbuilder
+      create      app/views/people/index.json.jbuilder
+      create      app/views/people/show.json.jbuilder
+      create      app/views/people/_person.json.jbuilder
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/people.coffee
+      invoke    scss
+      create      app/assets/stylesheets/people.scss
+      invoke  scss
+  identical    app/assets/stylesheets/scaffolds.scss
+						</code></pre>
+            </section>
+            <section>
+                <h2>Convención sobre configuración</h2>
+                <ul>
+                    <li>El código de configuración se reduce a casi una quinta parte del código de configuración de
+                        otros framework solo por seguir configuraciones comunes.
+                    </li>
+                    <ul>
+                        <li>Nombrando las clases que representan tus modelos con el mismo nombre de la correspondiente
+                            tabla en la Base de Datos.
+                        </li>
+                        <li>'id' es el nombre de la llave primaria.</li>
+                    </ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Active Record</h2>
+                <ul>
+                    <li>Salva objetos a la Base de Datos</li>
+                    <li>Descubre la columna en el esquema de la Base de Datos y automáticamente lo incluye al dominio
+                        del objeto usando metaprogramación.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Action Pack</h2>
+                <ul>
+                    <li>Vista y Controlador tienen una alta interacción, en Rails ellos se combinan en Action Pack.</li>
+                    <li>Action Pack divide una peticion web en componentes de la vista y componentes del controlador.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Comparacion con otros frameworks</h2>
+            </section>
+            <section>
+                <img src="assets/django.png" alt="Django">
+                <ul>
+                    <li>Django</li>
+                </ul>
+            </section>
+            <section>
+                <img src="assets/express.jpeg" alt="Express">
+                <ul>
+                    <li>Node.js</li>
+                </ul>
+            </section>
+            <section>
+                <img src="assets/flask.png" alt="Flask">
+                <ul>
+                    <li>Python</li>
+                </ul>
+            </section>
+            <section>
+                <img src="assets/laravel.jpeg" alt="Laravel">
+                <ul>
+                    <li>Php</li>
+                </ul>
+            </section>
+            <section>
+                <img src="assets/phoenix.png" alt="Phoenix">
+                <ul>
+                    <li>Elixir</li>
+                </ul>
+            </section>
+            <section>
+                <h2><span style="display: inline-block;" class="fragment fade-right ">Rails vs Django => Pros</span>
+                </h2>
+                <span style="display: inline-block;" class="fragment fade-right ">
+							<ul>
+								<li>Porque Django</li>
+									<ul>
+										<li>Desarrollo Rápido</li>
+										<li>Código Libre</li>
+										<li>Gran Comunidad</li>
+										<li>Fácil de Aprender</li>
+									</ul>
+								<li>Porque Rails</li>
+									<ul>
+										<li>Desarrollo Rápido</li>
+										<li>Excelentes Gemas</li>
+										<li>Gran Comunidad</li>
+										<li>Convención sobre configuración</li>
+									</ul>
+							</ul>
+						</span>
+            </section>
+            <section>
+                <h2>Rails vs Django => Cons</h2>
+                <ul>
+                    <li>Porque no Django</li>
+                    <li>
+                        <ul>
+                            <li>Templates de bajo poder</li>
+                            <li>Los controladores de URL ignoran métodos HTTP</li>
+                            <li>ORM de bajo poder</li>
+                            <li>Acoplamiento interno de subcomponentes</li>
+                        </ul>
+                    </li>
+                    <li>Porque no Rails</li>
+                    <li>
+                        <ul>
+                            <li>Mucha Magia</li>
+                            <li>Fuerte uso de Mixins</li>
+                            <li>Sistema de Assets es primitivo y desactualizado</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Sitios hechos en Ruby on Rails</h2>
+                <ul>
+                    <li>Tweeter</li>
+                    <li>Airbnb</li>
+                    <li>500px</li>
+                    <li>Github</li>
+                    <li>Ask.fm</li>
+                    <li>Basecamp</li>
+                    <li>Indiegogo</li>
+                    <li>Kickstarter</li>
+                    <li>SlideShare</li>
+                    <li>Goodreads</li>
+                    <li>Fiverr</li>
+                    <li>Jango</li>
+                    <li>TeamtreeHouse</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>¿Construimos un app?</h2>
+            </section>
+            <section>
+                <h2>Preparando el entorno...docker...</h2>
+            </section>
+            <section>
+                <h2>Docker</h2>
+                <pre><code class="hljs">$ docker network create rails</code></pre>
+                <pre><code class="hljs">$ docker volume create some_volume</code></pre>
+                <pre><code class="hljs">$ docker run -it --network rails --name rails_v \
+        -p 4000:4000 -p 4001:4001 -p 4002:4002 \
+        -v some_volume:/rails  \
+        rvm/rails bin/bash </code></pre>
+                <pre><code class="hljs">$ docker run --network rails -p 5002:5002 -it server_rubygems</code></pre>
+
+            </section>
+            <section>
+                <h2>Dentro del Container</h2>
+                <pre><code class="hljs">$ rails new app</code></pre>
+                <ul><li>Cubaneo..</li></ul>
+                <pre><code class="hljs">$ bundle</code></pre>
+                <pre><code class="hljs">$ rails server -p --port--</code></pre>
+
+            </section>
+        </section>
+        
+        <canvas class="fireworks"></canvas>
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                    return !document.body.classList;
+                }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {src: 'plugin/search/search.js', async: true},
+            {src: 'plugin/anime-js/anime.min.js'},
+            {
+                src: 'plugin/run-terminal/reveal-run-in-terminal.js',
+                callback: function () {
+                    RunInTerminal.init();
+                },
+                async: true
+            },
+            {src: 'plugin/anime-js/fireworks.js'},
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+</body>
+=======
+<html>
+	<head>
+<<<<<<< HEAD
+		        <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+   
+           <title>Sistema Operativo</title>
+   
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+          <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.icns">
+  
+          <link rel="stylesheet" href="css/reveal.css">
+          <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  
+
+		<!-- Printing and PDF exports -->
+		
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Persistencia....Archivos y Directorios</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Archivos y Directorios</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Interfaz del Sistema de Archivos</h2>
+					</section>
+					<section>
+						<h2>Crear Archivos</h2>
+						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
+					</section>
+					<section>
+						<h2>Leer y escribir Archivos</h2>
+						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
+						<pre><code>$ echo Hello > hello.txt 
+$ cat hello.txt
+hello
+$ 
+						</code></pre>
+					</section>
+					<section>
+						<h2>...fsync...</h2>
+					</section>
+					<section>
+						<h2>Obtener metadatos de los archivos</h2>
+						<ul>
+							<li>stat</li>
+							<li>fstat</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Trabajo con Directorios</h2>
+						<ul>
+							<li>Crearlo</li>
+							<li>Mover</li>
+							<li>Eliminarlo</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Los links...</h2>
+					</section>
+					<section>
+						<h2>Hard Link</h2>
+						<pre><code>$ ln target link_name</code></pre>
+					</section>
+					<section>
+						<h2>Soft Link</h2>
+						<pre><code>$ ln --symbolic target link_name</code></pre>
+					</section>
+					<section>
+						<h2>Resumiendo</h2>
+						<img src="diference.jpg" >
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Montando un Sistema de Ficheros</h2>
+						<pre><code>sudo mount /dev/sda3 /mnt
+for i in /dev /dev/pts /proc /sys; do sudo mount -B $i /mnt$i; done
+sudo chroot /mnt
+sudo grub-install /dev/sda3
+sudo update-grub
+exit
+sudo for i in /sys /proc /dev/pts /dev; do sudo umount /mnt$i; done</code></pre>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+>>>>>>> final_test_so
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+	<head>
+		        <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+   
+           <title>SO-Intro</title>
+   
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+          <link rel="icon" href="favicon.ico" type="image/x-icon">
+      <link rel="icon" href="favicon.icns">
+  
+          <link rel="stylesheet" href="css/reveal.css">
+          <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+  
+
+		<!-- Printing and PDF exports -->
+		
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Introduccion a los sistemas Operativos</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Temas</h2>
+						<ul>
+							<li>Virtualizacion de la CPU</li>
+							<li>Virtualizacion de la Memoria</li>
+							<li>Concurrencia</li>
+							<li>Persistencia</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Virtualizacion de la CPU</h2>
+					</section>
+					<section>
+						<pre><code>#include <stdlib.h>
+#include <stdio.h>
+#include <sys/time.h>
+#include <assert.h>
+#include "common.h"
+
+int main(int argc, char *argv[]) {
+	if (argc != 2) {
+		fprintf(stderr, "usage: cpu <string>\n");
+		exit(1);
+	}
+	char *str = argv[1];
+	
+	while (1) {
+		Spin(1);
+		printf("%s\n", str);
+	}
+	return 0;
+}</code></pre>
+						<h3>Codigo que hace un ciclo infinito, esperando un segundo e imprimiendo</h3>
+					</section>
+					<section>
+						<h3>Compilando..</h3>
+						<pre><code>$ gcc -o cpu cpu.c -Wall</code></pre>
+						<h3>Corriendolo..</h3>
+						<pre><code>$ ./cpu "A"
+A
+A
+A
+A
+A
+...</code></pre>
+						<h3>Y asi sucesivamente...</h3>
+					</section>
+					<section>
+						<h3>Corriendo multiple instancias del mismo programa</h3>
+						<pre><code>$ ./cpu "A" ; ./cpu "B" ; ./cpu "C" ; ./cpu "D" &
+[1] 7353
+[2] 7354
+[3] 7355
+[4] 7356
+A
+B
+D
+C
+A
+B
+D
+C
+A
+C
+B
+D
+...</code></pre>
+					</section>
+					<section>
+						<h3>Que es la Virtualizacion de la CPU?</h3>
+						<h3><p>Resulta que con el sistema operativo, con un poco de ayuda del Hardware esta a cargo de esta ilusion, i.e., la ilusion de que el sistema tiene un gran numero de CPU virtualess. Convertiendo un CPU (o pequeno numero de ellas) en aparentemente un infinito numero de CPU's y permitiendo así a muchos programas que aparentemente se ejecutan a la vez es lo que llamamos virtualizar la CPU</p></h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Virtualizacion de la Memoria</h2>
+					</section>
+					<section>
+						<pre><code>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "common.h"
+
+int main(int argc, char *argv[]) {
+	int *p = malloc(sizeof(int)); // a1
+	assert(p != NULL);
+	
+	printf("(%d) address of p: %08x\n",
+	getpid(), (unsigned) p); // a2
+	
+	*p = 0; // a3
+	
+	while (1) {
+		Spin(1);
+		*p = *p + 1;
+		printf("(%d) p: %d\n", getpid(), *p); // a4
+	}
+	return 0;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>Corriendo..</h3>
+						<pre><code>
+$ ./mem
+(2134) memory address of p: 00200000
+(2134) p: 1
+(2134) p: 2
+(2134) p: 3
+(2134) p: 4
+(2134) p: 5
+...
+						</code></pre>
+					</section>
+					<section>
+						<h3>Corriendo multiples instancias del programa</h3>
+						<pre><code>
+$ ./mem &; ./mem &
+[1] 24113
+[2] 24114
+(24113) memory address of p: 00200000
+(24114) memory address of p: 00200000
+(24113) p: 1
+(24114) p: 1
+(24114) p: 2
+(24113) p: 2
+(24113) p: 3
+(24114) p: 3
+(24113) p: 4
+(24114) p: 4
+...
+						</code></pre>
+					</section>
+					<section>
+						<h3>Que es la Virtualizacion de la Memoria?</h3>
+						<h3><p>Como se puede apreciar en el ejemplo, cada programa tiene asignado memoria en la misma direccion, y aun asi ambos procesos se van actualizando. Eso es que cada programa que se encuentra corriendo tiene su propia memoria privada, en vez de compartir la misma memoria fisica con otros procesos corriendo. De hecho, eso es lo que esta pasando cuando el SO esta virtalizando la memoria.</p></h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Concurrencia</h2>
+					</section>
+					<section>
+						<pre><code>
+#include <stdio.h>
+#include <stdlib.h>
+#include "common.h"
+
+volatile int counter = 0;
+int loops;
+
+void *worker(void *arg) {
+	int i;
+	for(i = 0; i < loops; i++) {
+		counter++;
+	}
+	return NULL;
+}
+
+int main(int argc, char *argv[]) {
+	if (argc != 2) {
+	fprintf(stderr, "usage: threads <value>\n");
+		exit(1);
+	}
+	loops = atoi(argv[1]);
+	pthread_t p1, p2;
+	printf("Initial value : %d\n", counter);
+	Pthread_create(&p1, NULL, worker, NULL);
+	Pthread_create(&p2, NULL, worker, NULL);
+	Pthread_join(p1, NULL);
+	Pthread_join(p2, NULL);
+	printf("Final value : %d\n", counter);
+	return 0;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>Compilando programas con hilos</h3>
+						<pre><code>$ gcc -o thread thread.c -Wall -pthread</code></pre>
+						<h3>Ejemplo</h3>
+						<pre><code>$ ./thread 1000
+Initial value : 0
+Final value : 2000</code></pre>
+					</section>
+					<section>
+						<h3>Corriendo Multiples isntancias</h3>
+						<pre><code>$ ./thread 100000
+Initial value : 0
+Final value : 143012 // huh??
+prompt> ./thread 100000
+Initial value : 0
+Final value : 137298 // what the??</code></pre>
+							
+					</section>
+					<section>
+						<h3>Que son los Hilos (threads)?</h3>
+						<h3><p>Se puede pensar en un hilo como una funcion corriendo con el mismo espacio de memoria que otras funciones, con mas de una de ellas activada a la vez.</p></h3>
+						<h3>La razon de esas salidas distintas es contador compartido que existe en el codigo, pero este es uno de los problemas de concurrencia.</h3>
+					</section>
+					
+				</section>
+				<section>
+					<section>
+						<h2>Persistencia</h2>
+					</section>
+					<section>
+						<pre><code>#include <stdio.h>
+#include <unistd.h>
+#include <assert.h>
+#include <fcntl.h>
+#include <sys/types.h>
+
+int main(int argc, char *argv[]) {
+	int fd = open("/tmp/file", O_WRONLY | O_CREAT | O_TRUNC, S_IRWXU);
+	assert(fd > -1);
+	
+	int rc = write(fd, "hello world\n", 13);
+	assert(rc == 13);
+	
+	close(fd);
+	
+	return 0;
+}</code></pre>
+					</section>
+					<section>
+						<h3>El anterior es un codigo cualquiera para abrir un archivo</h3>
+						<h3>
+							En la memoria del sistema, los datos pueden perderse fácilmente, ya que los dispositivos, como DRAM, almacenan los valores de forma volátil; cuando se corta la alimentación o el sistema falla, se pierden todos los datos de la memoria. Por lo tanto, necesitamos hardware y software para poder almacenar datos
+							persistentemente. Tal almacenamiento es por lo tanto crítico para cualquier sistema. El hardware viene en forma de algún tipo de entrada/salida. Todo esto se sostiene sobre un sistema de archivos, que es la base de la persistencia de datos.</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Historia</h3>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
