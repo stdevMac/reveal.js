@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+	<head>
+		        <meta charset="utf-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+   
+           <title>SO-Intro</title>
+   
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+          <link rel="icon" href="../favicon.ico" type="image/x-icon">
+      <link rel="icon" href="../favicon.icns">
+  
+          <link rel="stylesheet" href="../css/reveal.css">
+          <link rel="stylesheet" href="../css/theme/solarized.css" id="theme">
+  
+
+		<!-- Printing and PDF exports -->
+		
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Virtualizacion.... Introduccion al Scheduler </h2>
+				</section>
+				<section>
+					<section>
+						<h2>Temas</h2>
+						<ul>
+							<li>Metricas de Scheduling</li>
+							<li>First In, First Out (FIFO)</li>
+							<li>Shortest Job First (SJF)</li>
+							<li>Shortest Time-to-Completion First (STCF)</li>
+							<li>Round Robin</li>
+							<li>Quitando asunciones</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Metricas de Scheduling</h3>
+					</section>
+					<section>
+						<ul>
+							<li>turnaround time</li>
+							<li>Response time</li>
+						</ul>
+					</section>
+					<section>
+						<h4>TurnAround Time</h4>
+						<p>TurnAround consiste en restar al tiempo en que la tarea se finaliza, el tiempo en que llega la tarea</p>
+						<h4>Tturnaround = Tcompletion − Tarrival</h4>
+					</section>
+					<section>
+						<h4>Response Time</h4>
+						<p>Consiste en restar a la primera vez que fue ejectada la tarea, el tiempo de llegada de la propia</p>
+						<h4>Tresponse = Tfirstrun − Tarrival</h4>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>First In, First Out (FIFO)</h3>
+						<h4>El mas basico de los algoritmos que un Scheduler puede implementar, como su nombre indica, el primero en entrar es el primero que se ejecuta.</h4>
+					</section>
+					<section>
+						<h4>Aspectos a favor de FIFO</h4>
+						<ul>
+							<li>Muy facil de Implementar</li>
+							<li>Relativamente bueno para la metrica de TurnAround time</li>
+						</ul>
+						<h4>En contra</h4>
+						<ul>
+							<li>No es muy buena para la metrica Response Time</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Shortest Job First (SJF)</h3>
+						<p>Corre la tarea mas corta primero, y despues la mas siguiente mas corta, y asi sucesivamente...</p>
+					</section>
+					<section>
+						<h4>Aspectos a Favor</h4>
+						<ul>
+							<li>No muy dificil de implementar</li>
+						</ul>
+						<h4>En contra</h4>
+						<ul>
+							<li>No es muy buena para la metrica Response Time</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Shortest Time-to-Completion First (STCF)</h3>
+						<h4>Cada vez que una tarea entra al sistema, se determina entre las tareas restantes y la nueva cual es el trabajo que tiene menos tiempo, y entoces ejecuta ese.</h4>
+					</section>
+					<section>
+						<ul>
+							<li>Si supieramos el tamano de las tareas;</li>
+							<li>Solo usaramos la CPU</li>
+							<li>Nuestra metrica fuera TurnAround time</li>
+						</ul>
+						<p>Si solo tuviesemos los requerimientos anteriores, STCF seria una politica genial</p>
+						<h4>Cosas positivas ️☝️</h4>
+					</section>
+					<section>
+						<h4>En contra</h4>
+						<ul>
+							<li>Buena para la metrica Response Time</li>
+							<li>Malo para la interactividad</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Round Robin</h3>
+						<h4>Round Robin corre una tarea por un intervalo de tiempo(scheduling quantum), y entonces se cambia para la siguiente tarea en la cola. Lo hace repetidamente hasta que las tareas se acaben.</h4>
+						<h4>Algunas veces Round Robin lo llaman time-slicing</h4>
+						<h4></h4>
+					</section>
+					<section>
+						<h3>Notas: </h3>
+						<p>El tamano del intervalo de tiempo con que se ejecutan los programas, debe ser multiplo del periodo de interrupciones del sistema.</p>
+						<p>El tiempo del time-slicing es primordial para RR. Si es muy corto, es muy bueno para la metrica de Response Time, pero el costo de cambiar de contexto puede ser muy alto. Debe ser un costo amortizado entre sobre el costo de cambiar de contexto.</p>
+						<h4>En contra:</h4>
+						<ul>No funciona muy bien con la metrica TurnAround Time</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: '../plugin/markdown/marked.js' },
+					{ src: '../plugin/markdown/markdown.js' },
+					{ src: '../plugin/notes/notes.js', async: true },
+					{ src: '../plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
