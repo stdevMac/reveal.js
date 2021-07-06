@@ -1,0 +1,10 @@
+body:after {
+    content: url(../assets/image.svg);
+    size: 1ch;
+    position: fixed;
+    bottom: 12.5em;
+    left: 3.5em;
+    width: 5%;
+    height: 5%;
+    /* box-shadow: 5px 5px 10px; */
+}

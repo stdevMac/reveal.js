@@ -1,122 +1,142 @@
 <!doctype html>
 <html>
-	<head>
-		        <meta charset="utf-8">
-           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
-   
-           <title>Sistema Operativo</title>
-   
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
-          <link rel="icon" href="favicon.ico" type="image/x-icon">
-      <link rel="icon" href="favicon.icns">
-  
-          <link rel="stylesheet" href="css/reveal.css">
-          <link rel="stylesheet" href="css/theme/solarized.css" id="theme">
-  
 
-		<!-- Printing and PDF exports -->
-		
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+
+	<title>Evmone inside SGX</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+	<link rel="icon" href="neth.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+	<link rel="stylesheet" href="css/reveal-override.css" />
+
+
+	<!-- Printing and PDF exports -->
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Evmone inside Intel SGX</h2>
+				<a href="https://nethermind.io">by Nethermind</a>
+			</section>
+			<section>
 				<section>
-					<h2>Persistencia....Archivos y Directorios</h2>
+					<h2>What is Evmone</h2>
+					<p>evmone is a C++ implementation of the Ethereum Virtual Machine (EVM). Created by members of the
+						Ewasm team, the project aims for clean, standalone EVM implementation that can be imported as an
+						execution module by Ethereum Client projects. The codebase of evmone is optimized to provide
+						fast and efficient execution of EVM smart contracts.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>What is SGX</h2>
+					<p>Intel® Software Guard Extensions (Intel® SGX) is a set of instructions that increases the
+						security of application code and data, giving them more protection from disclosure or
+						modification. Developers can partition sensitive information into enclaves, which are areas of
+						execution in memory with more security protection.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>SGX Use Cases</h2>
 				</section>
 				<section>
-					<section>
-						<h2>Archivos y Directorios</h2>
-					</section>
+					<h4>Blockchain</h4>
+					<img class="r-stretch" src="./assets/blockchain.png">
+					<p>Help increase privacy and security for transaction processing, consensus, smart contracts, and
+						key storage.</p>
 				</section>
 				<section>
-					<section>
-						<h2>Interfaz del Sistema de Archivos</h2>
-					</section>
-					<section>
-						<h2>Crear Archivos</h2>
-						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
-					</section>
-					<section>
-						<h2>Leer y escribir Archivos</h2>
-						<pre><code>int fd = open("nombre_archivo.*", O_CREAT | O_TRUNC | O_WRONLY);</code></pre>
-						<pre><code>$ echo Hello > hello.txt 
-$ cat hello.txt
-hello
-$ 
-						</code></pre>
-					</section>
-					<section>
-						<h2>...fsync...</h2>
-					</section>
-					<section>
-						<h2>Obtener metadatos de los archivos</h2>
-						<ul>
-							<li>stat</li>
-							<li>fstat</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Trabajo con Directorios</h2>
-						<ul>
-							<li>Crearlo</li>
-							<li>Mover</li>
-							<li>Eliminarlo</li>
-						</ul>
-					</section>
+					<h4>Hardware-Enhanced Content Protection</h4>
+					<img class="r-stretch" src="./assets/content-protection.png">
+					<p>Aid content owners with protecting their intellectual property through unaltered or unmodified
+						streaming.</p>
 				</section>
 				<section>
-					<section>
-						<h2>Los links...</h2>
-					</section>
-					<section>
-						<h2>Hard Link</h2>
-						<pre><code>$ ln target link_name</code></pre>
-					</section>
-					<section>
-						<h2>Soft Link</h2>
-						<pre><code>$ ln --symbolic target link_name</code></pre>
-					</section>
-					<section>
-						<h2>Resumiendo</h2>
-						<img src="diference.jpg" >
-					</section>
+					<h4>Enhanced Application & Data Protection</h4>
+					<img class="r-stretch" src="./assets/data-protection.png">
+					<p>For increased protection, assist with running secure code and isolating data.</p>
 				</section>
 				<section>
-					<section>
-						<h2>Montando un Sistema de Ficheros</h2>
-						<pre><code>sudo mount /dev/sda3 /mnt
-for i in /dev /dev/pts /proc /sys; do sudo mount -B $i /mnt$i; done
-sudo chroot /mnt
-sudo grub-install /dev/sda3
-sudo update-grub
-exit
-sudo for i in /sys /proc /dev/pts /dev; do sudo umount /mnt$i; done</code></pre>
-					</section>
+					<h4>Digital Wallet</h4>
+					<img class="r-stretch" src="./assets/digital-wallet.png">
+					<p>Provide more defense to help secure payments and transactions.</p>
 				</section>
-			</div>
+			</section>
+
+			<section>
+				<h2>Why run evmone inside SGX</h2>
+			</section>
+
+			<section>
+				<section>
+					<h2>Mystikos</h2>
+					<p>Mystikos is a set of tools for running applications in a hardware trusted execution environment (TEE)</p>
+				</section>
+				<section>
+					<h4>Architecture</h4>
+					<img class="r-stretch" src="./assets/mystikos.png">
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Implementation</h2>
+				</section>
+				<section>
+					
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Results</h2>
+				</section>
+				<section>
+					<h4>Results inside Docker image in same OS</h4>
+				</section>
+				<section>
+					<h4>Results by app inside sgx</h4>
+				</section>
+			</section>
+			<section>
+				<h2>Conclusions</h2>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src=" js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			slideNumber: true,
+			hash: true,
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
 </html>
