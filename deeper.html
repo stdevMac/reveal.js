@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+
+	<title>Evmone inside SGX</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale    =1.0, user-scalable=no">
+	<link rel="icon" href="neth.ico" type="image/x-icon">
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+
+	<!-- Printing and PDF exports -->
+
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Evmone inside Intel SGX Basics</h2>
+				<a href="./index.html">Go to principal presentation</a>
+			</section>
+			<section>
+				<section>
+					<h2>What is Evmone</h2>
+					<p>evmone is a C++ implementation of the Ethereum Virtual Machine (EVM). Created by members of the
+						Ewasm team, the project aims for clean, standalone EVM implementation that can be imported as an
+						execution module by Ethereum Client projects. The codebase of evmone is optimized to provide
+						fast and efficient execution of EVM smart contracts.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>What is SGX</h2>
+					<p>Intel® Software Guard Extensions (Intel® SGX) is a set of instructions that increases the
+						security of application code and data, giving them more protection from disclosure or
+						modification. Developers can partition sensitive information into enclaves, which are areas of
+						execution in memory with more security protection.</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>SGX Use Cases</h2>
+				</section>
+				<section>
+					<h4>Blockchain</h4>
+					<img class="r-stretch" src="./assets/blockchain.png">
+					<p>Help increase privacy and security for transaction processing, consensus, smart contracts, and
+						key storage.</p>
+				</section>
+				<section>
+					<h4>Hardware-Enhanced Content Protection</h4>
+					<img class="r-stretch" src="./assets/content-protection.png">
+					<p>Aid content owners with protecting their intellectual property through unaltered or unmodified
+						streaming.</p>
+				</section>
+				<section>
+					<h4>Enhanced Application & Data Protection</h4>
+					<img class="r-stretch" src="./assets/data-protection.png">
+					<p>For increased protection, assist with running secure code and isolating data.</p>
+				</section>
+				<section>
+					<h4>Digital Wallet</h4>
+					<img class="r-stretch" src="./assets/digital-wallet.png">
+					<p>Provide more defense to help secure payments and transactions.</p>
+				</section>
+			</section>
+            <section>
+				<h2>Continue reading</h2>
+				<a href="./index.html">here</a>
+			</section>
+
+		</div>
+	</div>
+
+	<script src=" js/reveal.js"></script>
+
+	<script>
+		// More info about config & dependencies:
+		// - https://github.com/hakimel/reveal.js#configuration
+		// - https://github.com/hakimel/reveal.js#dependencies
+		Reveal.initialize({
+			slideNumber: true,
+			hash: true,
+			dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true }
+			]
+		});
+	</script>
+</body>
+
+</html>
