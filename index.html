@@ -33,13 +33,45 @@
 				<a href="./deeper.html">Go to the Basics</a>
 			</section>
 			<section>
+				<section>
+					<h2>What is Evmone?</h2>
+					<p>evmone is a C++ implementation of the Ethereum Virtual Machine (EVM). The project aims for clean,
+						standalone EVM implementation that can be imported as an
+						execution module by Ethereum Client projects. The codebase of evmone is optimized to provide
+						fast and efficient execution of EVM smart contracts.</p>
+				</section>
+			</section>
+
+			<section>
 				<h2>Why run evmone inside SGX</h2>
 			</section>
 
 			<section>
 				<section>
-					<h2>Mystikos</h2>
-					<p>Mystikos is a set of tools for running applications in a hardware trusted execution environment (TEE)</p>
+					<img src="./assets/mystikos_logo.png">
+					<p>Mystikos is a set of tools for running applications in a hardware trusted execution environment
+						(TEE)</p>
+				</section>
+				<section>
+					<h4>Main Goals</h4>
+					<ul>
+						<li>Enable protection of application code and data while in memory through the use of HW TEEs.
+						</li>
+						<li>Lift and shift applications, either native or containerized, into TEEs with little or no
+							modification.</li>
+						<li>Allow users and application developers control over the makeup of the trusted computing base
+							(TCB), ensuring that all components running inside the TEE are open source.</li>
+						<li>Simplify re-targeting to other TEE architectures through a plugin architecture.</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Architecture</h4>
+					<h5>Components</h5>
+					<ul>
+						<li>C-runtime based on <a href="https://musl.libc.org/">musl libc</a></li>
+						<li>a "lib-os like" kernel</li>
+						<li>The Kernel target interface</li>
+					</ul>
 				</section>
 				<section>
 					<h4>Architecture</h4>
@@ -52,19 +84,68 @@
 					<h2>Implementation</h2>
 				</section>
 				<section>
-					
+					<h4>Steps</h4>
+					<ol>
+						<li>Create Dockerfile based on Alpine</li>
+						<li>Run Mystikos Magic</li>
+						<li>Run the app inside sgx</li>
+					</ol>
 				</section>
 			</section>
-			
+
 			<section>
 				<section>
 					<h2>Results</h2>
+					<h4>Machine Specs</h4>
+					<ul>
+						<li>Intel(R) Xeon(R) E-2288G CPU @ 3.70GHz</li>
+						<li>4gb RAM</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Comparing Tests(1)</h4>
+					<h5>Local</h5>
+					<img src="./assets/benchmark.local.1.png">
+					<h5>Docker</h5>
+					<img src="./assets/benchmark.docker.1.png">
+					<h5>SGX</h5>
+					<img src="./assets/benchmark.sgx.1.png">
+				</section>
+				<section>
+					<h4>Comparing Tests(2)</h4>
+					<h5>Local</h5>
+					<img src="./assets/benchmark.local.2.png">
+					<h5>Docker</h5>
+					<img src="./assets/benchmark.docker.2.png">
+					<h5>SGX</h5>
+					<img src="./assets/benchmark.sgx.2.png">
+				</section>
+				<section>
+					<h4>Comparing Tests(3)</h4>
+					<h5>Local</h5>
+					<img src="./assets/benchmark.local.3.png">
+					<h5>Docker</h5>
+					<img src="./assets/benchmark.docker.3.png">
+					<h5>SGX</h5>
+					<img src="./assets/benchmark.sgx.3.png">
+				</section>
+				<section>
+					<h5>Local</h5>
+					<img src="./assets/benchmark.sgx.baseline.png">
+					<h5>SGX</h5>
+					<img src="./assets/benchmark.local.baseline.png">
+				</section>
+				<section>
+					<h4>Results inside in linux host</h4>
+					<img src="./assets/benchmark.local.png">
 				</section>
 				<section>
 					<h4>Results inside Docker image in same OS</h4>
+					<img src="./assets/benchmark.docker.png">
 				</section>
 				<section>
 					<h4>Results by app inside sgx</h4>
+					<img src="./assets/benchmark.sgx.png">
 				</section>
 			</section>
 			<section>
